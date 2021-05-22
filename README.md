@@ -14,8 +14,8 @@
 	- [C++の名前解決 ADL その2](https://prettysoft.hatenablog.com/entry/20101129/204558) (プログラミングの教科書を置いておくところ)
 		- ADL と関数テンプレート : N1905, N4713
 		- ADL と関数オブジェクト : N3000
-		- ADL とカスタマイゼーションポイント : N3000, [N4741](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/n4741.pdf)
-		- ADL とカスタマイゼーションポイントオブジェクト(CPO) : [N4762](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/n4762.pdf)
+		- ADL とカスタマイゼーションポイント : N3000, [N4741(2018)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/n4741.pdf)
+		- ADL とカスタマイゼーションポイントオブジェクト(CPO) : [N4762(2018)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/n4762.pdf)
 			- CPO というのは、ADL を制御しようとする試み
 				- 関数呼び出し時に適用される ADL はそのままでは制御不能
 				- もし意図しない適用が起きていたとしてもそれを検出できるのは実行時
@@ -32,11 +32,11 @@
 		- ( Nxxxx は Working Draft の Update であった。 - 参考: [cpprefjp - C++国際標準規格](https://cpprefjp.github.io/international-standard.html) )
 - C++0x Concept
 	- [コンセプトは滅びぬ！何度でもよみがえるさ！コンセプトの力こそC++erの夢だからだ！](https://spinor.hatenablog.com/entry/20111215/1323951052) (spinorのブログ)
-		- [ConceptGCC](http://www.generic-programming.org/software/ConceptGCC.html)  ( [江添さんinfo](https://ezoeryou.github.io/blog/article/2015-08-07-gcc-concept.html) )
+		- [ConceptGCC](http://www.generic-programming.org/software/ConceptGCC.html)  ( [江添さんinfo(2015)](https://ezoeryou.github.io/blog/article/2015-08-07-gcc-concept.html) )
 		- [ConceptClang](http://www.generic-programming.org/software/ConceptClang/)
 		- [コンセプト (C++) - Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%82%BB%E3%83%97%E3%83%88_%28C%2B%2B%29)
-		- http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2081.pdf Concepts (Revision 1)
-		- http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2906.pdf Simplifying the use of concepts
+		- [N2081 (2006) - Concepts (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2081.pdf)  - Douglas Gregor, Bjarne Stroustrup
+		- [N2941 (2009) - Simplifying the use of concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2906.pdf)  - Bjarne Stroustrup
 		- http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2914.pdf コンセプトが記載された最後の規格書ドラフト
 - ISO C++ Paper/Information
 	- [C++0x Concepts — Historical FAQs](https://isocpp.org/wiki/faq/cpp0x-concepts-history)
