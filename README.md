@@ -1,5 +1,7 @@
 # review
+レビュー
 
+# 参考資料
 - 江添さんの解説
 	- [N4381: Suggested Design for Customization Points](https://cpplover.blogspot.com/2015/05/c2015-04-pre-lenexa-mailings-n4381-n4389.html)
 - 新しい言語規格ドラフト
