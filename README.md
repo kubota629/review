@@ -22,20 +22,20 @@
 				- 関数呼び出し時に適用される ADL はそのままでは制御不能
 				- もし意図しない適用が起きていたとしてもそれを検出できるのは実行時
 			- ここで関数オブジェクトが注目されます
-				- 関数オブジェクトは本当の関数ではないので、ADL は適用されません
+				- ___関数オブジェクトは本当の関数ではないので、ADL は適用されません___
 				- 必ず意図したものが呼ばれるようにコンパイルされるので、そこに何かチェックを咬ませることが簡単にできる
 					- C++20 にはコンセプトが導入される
-						- コンセプトで必要なチェックをした後に、ADL が有効な文脈に実引数を渡してあげると
-						- ADL を制御下に置くことができるようになる
-			- ADL が制御不能であるというところは変わりませんが、
-			- その前にコンパイル時のチェックができるということで幾分安心できるようになりそう
+						- コンセプトで必要なチェックをした後に、ADL が有効な文脈に実引数を渡してあげると  
+						  ADL を制御下に置くことができるようになる
+			- ADL が制御不能であるというところは変わりませんが、  
+			  その前にコンパイル時のチェックができるということで幾分安心できるようになりそう
 		- niebloid (Eric Niebler)
 		- std::tag_invoke (C++23 で導入を目指している)
 		- ( Nxxxx は Working Draft の Update であった。 - 参考: [cpprefjp - C++国際標準規格](https://cpprefjp.github.io/international-standard.html) )
 - C++0x Concept
 	- [コンセプトは滅びぬ！何度でもよみがえるさ！コンセプトの力こそC++erの夢だからだ！](https://spinor.hatenablog.com/entry/20111215/1323951052) (spinorのブログ)
-		- `model` という単語は (型がコンセプトを) 満足するという意味の動詞として、
-		- また、コンセプト要件を満足する型のセットを意味する名詞として、使われるそうです。
+		- `model` という単語は (型がコンセプトを) 満足するという意味の動詞として、  
+		  また、コンセプト要件を満足する型のセットを意味する名詞として、使われるそうです。
 		- [ConceptGCC](http://www.generic-programming.org/software/ConceptGCC.html)  ( [江添さんinfo(2015)](https://ezoeryou.github.io/blog/article/2015-08-07-gcc-concept.html) )
 		- [ConceptClang](http://www.generic-programming.org/software/ConceptClang/)
 		- [コンセプト (C++) - Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%82%BB%E3%83%97%E3%83%88_%28C%2B%2B%29)
