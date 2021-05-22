@@ -32,6 +32,8 @@
 		- ( Nxxxx は Working Draft の Update であった。 - 参考: [cpprefjp - C++国際標準規格](https://cpprefjp.github.io/international-standard.html) )
 - C++0x Concept
 	- [コンセプトは滅びぬ！何度でもよみがえるさ！コンセプトの力こそC++erの夢だからだ！](https://spinor.hatenablog.com/entry/20111215/1323951052) (spinorのブログ)
+		- [ConceptGCC](https://ezoeryou.github.io/blog/article/2015-08-07-gcc-concept.html)
+		- [ConceptClang](http://www.generic-programming.org/software/ConceptClang/)
 - ISO C++ Paper/Information
 	- [C++0x Concepts — Historical FAQs](https://isocpp.org/wiki/faq/cpp0x-concepts-history)
 	- [N3629 2013-04-09 Doug Gregor - Simplifying C++0x Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3629.pdf)
