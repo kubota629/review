@@ -9,6 +9,8 @@
 	- [カスタマイゼーションポイントオブジェクト(CPO)概論](https://onihusube.hatenablog.com/entry/2020/06/26/225920) (地面を見下ろす少年の足蹴にされる私)
 	- [Customization Point Object](https://yohhoy.hatenadiary.jp/entry/20190403/p1) (yohhoyの日記)
 	- [Customization pointについて](http://tk0xleader.blog.shinobi.jp/c--/%E3%80%90c--2a%E3%80%91customization%20point%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6) (tk-xleaderのブログ)
+		- `using std::swap;` や、`using namespace std;` として `swap` を非修飾名で呼び出す方法
+			- （探索先にstd名前空間を加えてADLを意図的に引き起こす手段） 
 - C++言語規格の資料
 	- [C++の名前解決](https://prettysoft.hatenablog.com/entry/20101128/1497356882) (プログラミングの教科書を置いておくところ)
 	- [C++の名前解決 ADL その2](https://prettysoft.hatenablog.com/entry/20101129/204558) (プログラミングの教科書を置いておくところ)
@@ -32,7 +34,7 @@
 		- ( Nxxxx は Working Draft の Update であった。 - 参考: [cpprefjp - C++国際標準規格](https://cpprefjp.github.io/international-standard.html) )
 - C++0x Concept
 	- [コンセプトは滅びぬ！何度でもよみがえるさ！コンセプトの力こそC++erの夢だからだ！](https://spinor.hatenablog.com/entry/20111215/1323951052) (spinorのブログ)
-		- 「model」という単語は（型がコンセプトを）満足するという意味の動詞として、
+		- `model` という単語は (型がコンセプトを) 満足するという意味の動詞として、
 		- また、コンセプト要件を満足する型のセットを意味する名詞として、使われるそうです。
 		- [ConceptGCC](http://www.generic-programming.org/software/ConceptGCC.html)  ( [江添さんinfo(2015)](https://ezoeryou.github.io/blog/article/2015-08-07-gcc-concept.html) )
 		- [ConceptClang](http://www.generic-programming.org/software/ConceptClang/)
