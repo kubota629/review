@@ -6,7 +6,8 @@
 	- 2010-09-20 [コンセプトの経緯](https://cpplover.blogspot.com/2010/09/blog-post_8970.html)
 	- 2015-05-13 [N4381: Suggested Design for Customization Points](https://cpplover.blogspot.com/2015/05/c2015-04-pre-lenexa-mailings-n4381-n4389.html)
 - 新しい言語規格ドラフトのレビュー
-	- [カスタマイゼーションポイントオブジェクト(CPO)概論](https://onihusube.hatenablog.com/entry/2020/06/26/225920) (地面を見下ろす少年の足蹴にされる私)
+	- [カスタマイゼーションポイントオブジェクト(CPO)概論](https://onihusube.hatenablog.com/entry/2020/06/26/225920) (地面を見下ろす少年の足蹴にされる私)  
+	  > C++における名前探索では修飾名探索と非修飾名探索を行なった後、引数依存名前探索（ADL）を行いオーバーロード候補集合を決定します。この時、非修飾名探索の結果に関数以外のものが含まれているとADLは行われません。逆に言うと、ADLは関数名に対してしか行われません。つまり、関数オブジェクトに対してはADLは発動しません（6.5.2 Argument-dependent name lookup [basic.lookup.argdep]）
 	- [Customization Point Object](https://yohhoy.hatenadiary.jp/entry/20190403/p1) (yohhoyの日記)
 	- [Customization pointについて](http://tk0xleader.blog.shinobi.jp/c--/%E3%80%90c--2a%E3%80%91customization%20point%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6) (tk-xleaderのブログ)
 		- `using std::swap;` や、`using namespace std;` として `swap` を非修飾名で呼び出す方法
@@ -22,7 +23,7 @@
 				- 関数呼び出し時に適用される ADL はそのままでは制御不能
 				- もし意図しない適用が起きていたとしてもそれを検出できるのは実行時
 			- ここで関数オブジェクトが注目されます
-				- ___関数オブジェクトは本当の関数ではないので、ADL は適用されません___
+				- ___関数オブジェクトは本当の関数ではないので、ADL は適用されません___ ★★★
 				- 必ず意図したものが呼ばれるようにコンパイルされるので、そこに何かチェックを咬ませることが簡単にできる
 					- C++20 にはコンセプトが導入される
 						- コンセプトで必要なチェックをした後に、ADL が有効な文脈に実引数を渡してあげると  
