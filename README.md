@@ -3,7 +3,8 @@
 
 # 参考資料
 - 江添さんの解説
-	- [N4381: Suggested Design for Customization Points](https://cpplover.blogspot.com/2015/05/c2015-04-pre-lenexa-mailings-n4381-n4389.html)
+	- 2010-09-20 [コンセプトの経緯](https://cpplover.blogspot.com/2010/09/blog-post_8970.html)
+	- 2015-05-13 [N4381: Suggested Design for Customization Points](https://cpplover.blogspot.com/2015/05/c2015-04-pre-lenexa-mailings-n4381-n4389.html)
 - 新しい言語規格ドラフトのレビュー
 	- [カスタマイゼーションポイントオブジェクト(CPO)概論](https://onihusube.hatenablog.com/entry/2020/06/26/225920) (地面を見下ろす少年の足蹴にされる私)
 	- [Customization Point Object](https://yohhoy.hatenadiary.jp/entry/20190403/p1) (yohhoyの日記)
