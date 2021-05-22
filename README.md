@@ -25,5 +25,7 @@
 						- コンセプトで必要なチェックをした後に、ADL が有効な文脈に実引数を渡してあげると
 						- ADL を制御下に置くことができるようになる
 			- ADL が制御不能であるというところは変わりませんが、
-			- その前にコンパイル時のチェックができるということで幾分安心できるようになりそう 
+			- その前にコンパイル時のチェックができるということで幾分安心できるようになりそう
+		- niebloid (Eric Niebler)
+		- std::tag_invoke (C++23 で導入を目指している)
 		- ( Nxxxx は Working Draft の Update であった。 - 参考: [cpprefjp - C++国際標準規格](https://cpprefjp.github.io/international-standard.html) )
