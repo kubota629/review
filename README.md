@@ -34,6 +34,9 @@
 	- [コンセプトは滅びぬ！何度でもよみがえるさ！コンセプトの力こそC++erの夢だからだ！](https://spinor.hatenablog.com/entry/20111215/1323951052) (spinorのブログ)
 		- [ConceptGCC](http://www.generic-programming.org/software/ConceptGCC.html), [江添さんinfo](https://ezoeryou.github.io/blog/article/2015-08-07-gcc-concept.html)
 		- [ConceptClang](http://www.generic-programming.org/software/ConceptClang/)
+		- http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2081.pdf Concepts (Revision 1)
+		- http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2906.pdf Simplifying the use of concepts
+		- http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2914.pdf コンセプトが記載された最後の規格書ドラフト
 - ISO C++ Paper/Information
 	- [C++0x Concepts — Historical FAQs](https://isocpp.org/wiki/faq/cpp0x-concepts-history)
 	- [N3629 2013-04-09 Doug Gregor - Simplifying C++0x Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3629.pdf)
