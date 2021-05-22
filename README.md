@@ -15,4 +15,15 @@
 		- ADL と関数オブジェクト : N3000
 		- ADL とカスタマイゼーションポイント : N3000, [N4741](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/n4741.pdf)
 		- ADL とカスタマイゼーションポイントオブジェクト(CPO) : [N4762](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/n4762.pdf)
-			- ( Nxxxx は Working Draft の Update であった。 - 参考: [cpprefjp - C++国際標準規格](https://cpprefjp.github.io/international-standard.html) )
+			- CPO というのは、ADL を制御しようとする試み
+				- 関数呼び出し時に適用される ADL はそのままでは制御不能
+				- もし意図しない適用が起きていたとしてもそれを検出できるのは実行時
+			- ここで関数オブジェクトが注目されます
+				- 関数オブジェクトは本当の関数ではないので、ADL は適用されません
+				- 必ず意図したものが呼ばれるようにコンパイルされるので、そこに何かチェックを咬ませることが簡単にできる
+					- C++20 にはコンセプトが導入される
+						- コンセプトで必要なチェックをした後に、ADL が有効な文脈に実引数を渡してあげると
+						- ADL を制御下に置くことができるようになる
+			- ADL が制御不能であるというところは変わりませんが、
+			- その前にコンパイル時のチェックができるということで幾分安心できるようになりそう 
+		- ( Nxxxx は Working Draft の Update であった。 - 参考: [cpprefjp - C++国際標準規格](https://cpprefjp.github.io/international-standard.html) )
