@@ -13,5 +13,6 @@
 	- [C++の名前解決 ADL その2](https://prettysoft.hatenablog.com/entry/20101129/204558) (プログラミングの教科書を置いておくところ)
 		- ADL と関数テンプレート : N1905, N4713
 		- ADL と関数オブジェクト : N3000
-		- ADL とカスタマイゼーションポイント : N3000, [N4741](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/n4741.pdf)(Working Draft Update)
-		- ADL とカスタマイゼーションポイントオブジェクト(CPO) : N4762
+		- ADL とカスタマイゼーションポイント : N3000, [N4741](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/n4741.pdf)
+		- ADL とカスタマイゼーションポイントオブジェクト(CPO) : [N4762](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/n4762.pdf)
+			- ( Nxxxx は Working Draft の Update であった。 - 参考: [cpprefjp - C++国際標準規格](https://cpprefjp.github.io/international-standard.html) )
