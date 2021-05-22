@@ -1,5 +1,6 @@
 # review
-レビュー
+[P2279R0 (2021-01-15) We need a language mechanism for customization points](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2279r0.html)  - Barry Revzin  
+　参考資料: [(地面を見下ろす少年の足蹴にされる私)](https://onihusube.hatenablog.com/#P2279R0-We-need-a-language-mechanism-for-customization-points)
 
 # 参考資料
 - 江添さんの解説
