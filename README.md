@@ -27,7 +27,7 @@ ADL はそのままだと制御が簡単ではなく (意図しない動作や�
 
 CPO というのは、ADL を制御しようとする試みです。
 
-## ___customization point___  - [N4381](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html) (2015-03-11)  
+## ___customization point___
 独自のユーザ定義実装に変更 (カスタマイズ) することができる、C++標準ライブラリの関数。
 - C++標準ライブラリの関数で、user’s namespace にある user-defined types によって  
 オーバーロードすることができ、かつ、ADL によって見つかるもの。 
@@ -37,7 +37,7 @@ C++標準ライブラリには、ユーザ側で挙動を変更できる箇所�
 - `std::begin`
 - `std::end` etc.
 
-[N4381](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html) では、
+[N4381](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html) (2015-03-11) では、
 1. customization point をユーザ定義する際の、現行アプローチの使い勝手の問題点の記述
 2. 将来の customization point 定義において利用できるデザインパターンの提示
 
@@ -78,7 +78,7 @@ int* end(X& x) { return data + 100; }
 	- `using` とか。ADL とか。原理の説明に込み入った知識を要求するし、誤使用されやすい。
 		- `using` なしで `std::begin(c)`, `std::end(c)` とするとユーザ定義実装が呼ばれないことが起きる。
 		- ( `using` しないと `std::begin()`, `std::end()` が見つからないことが起きる ※ )
-	- 正しい呼び出し方法が煩雑で、理解するにはC++を深めに理解する事が求められるなど、使いづらい。 
+	- 正しい呼び出し方法が煩雑で、C++ を深めに理解する事が求められるなど、使いづらい。 
 2. ___constraint bypass___ : 要求される型制約を無視できてしまう ( コンセプトを用いた型制約を強制できない )
 ```cpp
 // イテレータを返してくれない俺俺ユーザ定義...
