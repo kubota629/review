@@ -68,7 +68,7 @@ void func(Container&& c) {
 struct X { int data[100]; };
 
 // 独自のbegin/end実装
-//  → 独自型の名前空間スコープに、同名の関数/関数テンプレートを書けばよい。ADLで適切な関数が選ばれる。 
+//  → 独自型の名前空間スコープに, 同名の関数/関数テンプレートを書けばよい. ADLで適切な関数が選ばれる.
 int* begin(X& x) { return data; }
 int* end(X& x) { return data + 100; }
 ```
@@ -89,6 +89,13 @@ int* end(X& x) { return data + 100; }
 bool begin(X& x) { return true; }
 ```
 
+### 対策
+C++20 では、C++標準ライブラリへのCPO導入によって、既存の2つの課題解決をはかっている。
+- 完全修飾名呼び出し (qualified lookup) `std::begin(c);`、または  
+  非修飾名呼び出し (unqualified lookup) `using std::begin; begin(c);` は、  
+  いずれの呼び出しでも同じ振る舞いになること。
+- `using std::begin; begin(c);` としても、CPO `begin` が要求する型制約がバイパス (無視, 迂回) されないこと。
+
 ### 新 C++20 Ranges での記述
 ```cpp
 // イテレート可能な範囲を受けて何かする関数
@@ -105,8 +112,8 @@ void func(Container&& c) {
 		- `ranges::begin` [\[range.access.begin\]](https://timsong-cpp.github.io/cppwp/n4861/range.access.begin)
 		- `ranges::end` [\[range.access.end\]](https://timsong-cpp.github.io/cppwp/n4861/range.access.end) etc.
 - 従来から customization point になっている関数は、( CPO に置き換えたかったが )  
-  後方互換性維持のため C++17 ライブラリ仕様のまま維持されます。
-- CPO は別の名前空間に同名で定義されています。
+  後方互換性維持のため C++17 ライブラリ仕様のまま維持される。
+	- CPO は別の名前空間に同名で定義される。
 
 ## 背景
 
