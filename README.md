@@ -17,6 +17,7 @@ Existing Static Polymorphism Strategies
 
 ## Customization Point Objects (CPO)
 C++20で導入された新しいデザインパターン。[\[customization.point.object\]](https://timsong-cpp.github.io/cppwp/n4861/customization.point.object)  
+  
 semiregular な関数オブジェクト。(callable function object)  
 「制約のあるADL (constrained ADL dispatch)」を行うために存在する。  
   
@@ -89,10 +90,8 @@ ADL を制御下に置くことができるようになる。
 				> 
 				> These terms are completely disjoint - ... 
 		- [Declaratively implementing CPOs](https://brevzin.github.io/c++/2019/09/23/declarative-cpos/) (2019-09-23)  
-		  > One of the new design patterns in C++20 is something known as a customization point object, or CPO. A CPO is a callable function object, which means you can easily pass it around to other functions without having to worry about the struggle that is passing around other kinds of polymorphic callables (like function templates and overload sets). 
-		  > 
-		  > ...
-		  > 
+		  > One of the new design patterns in C++20 is something known as a customization point object, or CPO. A CPO is a callable function object, which means you can easily pass it around to other functions without having to worry about the struggle that is passing around other kinds of polymorphic callables (like function templates and overload sets).  
+		  > ...  
 		  > One of the new CPOs from Ranges is `std::ranges::begin`, specified in [\[range.access.begin\]](http://eel.is/c++draft/range.access.begin).  
 		  > `ranges::begin(E)` is expression-equivalent to one of the following, in sequential order:
 		- [UFCS: Customization and Extension](https://brevzin.github.io/c++/2019/08/22/ufcs-custom-extension/) (2019-08-22) 
