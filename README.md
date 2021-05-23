@@ -28,8 +28,12 @@ ADL を制御下に置くことができるようになる。
 
 ADL
 
-- Rangeライブラリ
-	- \<ranges\> https://timsong-cpp.github.io/cppwp/n4861/#ranges
+- Rangeライブラリ ( C++20: N4861 [PDF](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/n4861.pdf)/[HTML](https://timsong-cpp.github.io/cppwp/n4861/) )
+	- \<concepts\> - [18 Concepts library \[concepts\]](https://timsong-cpp.github.io/cppwp/n4861/#concepts)
+		- `ranges::swap` [\[concept.swappable\]](https://timsong-cpp.github.io/cppwp/n4861/concept.swappable) 
+	- \<ranges\> - [24 Ranges library \[ranges\]](https://timsong-cpp.github.io/cppwp/n4861/#ranges)
+		- `ranges::begin` [\[range.access.begin\]](https://timsong-cpp.github.io/cppwp/n4861/range.access.begin)
+		- `ranges::end` [\[range.access.end\]](https://timsong-cpp.github.io/cppwp/n4861/range.access.end)
 
 ## C++0x Concept Maps (concept_map)
 
