@@ -26,7 +26,6 @@ ADL はそのままだと制御が簡単ではなく (意図しない動作や�
 もし意図しない適用が起きていたとしても検出できるのは実行時だった。
 
 ## ___customization point___  - [N4381](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html) (2015-03-11)  
-
 独自のユーザ定義実装に変更 (カスタマイズ) することができる、C++標準ライブラリの関数。
 - C++標準ライブラリの関数で、user’s namespace にある user-defined types によって  
 オーバーロードすることができ、かつ、ADL によって見つかるもの。 
@@ -43,7 +42,6 @@ C++標準ライブラリには、ユーザ側で挙動を変更できる箇所�
 を行うこととしている。
 
 ### 現行アプローチ
-
 ```cpp
 // イテレート可能な範囲を受けて何かする関数
 template<typename Container>
@@ -55,14 +53,14 @@ void func(Container&& c) {
   auto end = end(c);
 }
 ```
-- `std::begin`, `std::end` という名前を name lookup で発見できるようにする (`using`)
-- `begin()`, `end()` を名前空間修飾なしで呼び出す  
+- `std::begin`, `std::end` という名前を name lookup で発見できるようにする。 (`using`)
+- `begin()`, `end()` を名前空間修飾なしで呼び出す。  
   → unqualified name lookup を行うと ADL も働き、見つかった名前の中でオーバーロード解決が行われる。  
 	- `std`名前空間のもの 及び 配列 には、`std::begin()`, `std::end()` が呼び出されるようになる。
 	- ユーザ定義型に対しては、同じ名前空間内にある `begin()`, `end()` あるいは  
 	  `std::begin()`, `std::end()` を通してメンバ関数の `begin()`, `end()` が呼び出されるようになる。
-#### 背景 - ジェネリック:「標準 begin/end」と「ユーザ定義 begin/end」を合わせて扱う
 
+#### 背景 - ジェネリック:「標準 begin/end」と「ユーザ定義 begin/end」を合わせて扱う
 ```cpp
 // 独自のユーザ定義型
 struct X
@@ -77,15 +75,14 @@ int* end(X& x) { return data + 100; }
 ```
 
 #### 問題点 2つ
-
 1. ___error-prone___ : 誤って利用されるリスクがある ( 呼び出しが煩雑, 使いづらい )
 	- `using` とか。原理の説明に込み入った知識を要求するし、誤使用されやすい。
 		- `using` なしで `std::begin(c)`, `std::end(c)` とするとユーザ定義実装が呼ばれないことが起きる。
 		- ( `using` しないと `std::begin()`, `std::end()` が見つからないことが起きる ※ )
+	- 正しい呼び出し方法が煩雑で、理解するにはC++を深めに理解する事が求められるなど、使いづらい。 
 2. ___constraint bypass___ : 要求される型制約を無視できてしまう ( コンセプトを用いた型制約を強制できない )
 
 ### 新 C++20 Ranges での記述
-
 ```cpp
 // イテレート可能な範囲を受けて何かする関数
 template<typename Container>
@@ -100,6 +97,9 @@ void func(Container&& c) {
 	- \<ranges\> - [24 Ranges library \[ranges\]](https://timsong-cpp.github.io/cppwp/n4861/#ranges)
 		- `ranges::begin` [\[range.access.begin\]](https://timsong-cpp.github.io/cppwp/n4861/range.access.begin)
 		- `ranges::end` [\[range.access.end\]](https://timsong-cpp.github.io/cppwp/n4861/range.access.end) etc.
+- 従来の customization point になっている関数 を CPO に置き換えたかったが、  
+  互換性の問題からできなかったようです。
+- そのため、CPO は別の名前空間に同名で定義されています。
 
 ## 背景
 
