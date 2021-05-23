@@ -13,9 +13,7 @@ Existing Static Polymorphism Strategies
 	   [P1895: tag_invoke: A general pattern for supportingcustomisable functions](http://open-std.org/JTC1/SC22/WG21/docs/papers/2019/p1895r0.pdf)  
 	   2019-10-07 Lewis Baker, Eric Niebler, Kirk Shoop
 
-# メモ
-
-## Customization Point Objects (CPO)
+# Customization Point Objects (CPO)
 C++20で導入された新しいデザインパターン。[\[customization.point.object\]](https://timsong-cpp.github.io/cppwp/n4861/customization.point.object)  
   
 semiregular な関数オブジェクト。(callable function object)  
@@ -24,7 +22,7 @@ semiregular な関数オブジェクト。(callable function object)
 C++20 Concept で必要なチェックをした後に、ADL が有効な文脈に実引数を渡してあげると  
 ADL を制御下に置くことができるようになる。
 
-### ___customization point___  - [N4381](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html) (2015-03-11)  
+## ___customization point___  - [N4381](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html) (2015-03-11)  
 C++標準ライブラリの関数で、user’s namespace にある user-defined types によって  
 オーバーロードすることができ、かつ、ADL によって見つかるもの。 
 
@@ -39,7 +37,7 @@ C++標準ライブラリには、ユーザー側で挙動を変更できる箇�
 
 を行うこととしている。
 
-### 背景
+## 背景
 
 ADL
 
@@ -50,7 +48,7 @@ ADL
 		- `ranges::begin` [\[range.access.begin\]](https://timsong-cpp.github.io/cppwp/n4861/range.access.begin)
 		- `ranges::end` [\[range.access.end\]](https://timsong-cpp.github.io/cppwp/n4861/range.access.end)
 
-## C++0x Concept Maps (concept_map)
+# C++0x Concept Maps (concept_map)
 
 
 # 参考資料
