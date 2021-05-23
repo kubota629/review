@@ -15,7 +15,7 @@ Existing Static Polymorphism Strategies
 
 # メモ
 ## Customization Point Objects (CPO)
-C++20で導入された新しいデザインパターン。
+C++20で導入された新しいデザインパターン。[\[customization.point.object\]](http://eel.is/c++draft/customization.point.object#def:customization_point_object) (c++draft)
 ## C++0x Concept Maps (concept_map)
 
 
