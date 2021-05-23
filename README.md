@@ -29,7 +29,10 @@ Existing Static Polymorphism Strategies
 		- C++23以降の標準ライブラリ  
 		  > 特にC++23に導入されるのがほぼ確実視されているExecutorライブラリは、現段階ですでにコンセプトとカスタマイゼーションポイントオブジェクトベースの非常にジェネリックな最先端のライブラリです。C++23とそれ以降の標準ライブラリではカスタマイゼーションポイントオブジェクトとコンセプトは空気のような存在になるでしょう。 
 	- [Customization Point Object](https://yohhoy.hatenadiary.jp/entry/20190403/p1) (yohhoyの日記)  
-	  > C++標準ライブラリへのCPO導入によって、既存の2つの課題解決をはかっている。 
+	  > C++標準ライブラリへのCPO導入によって、既存の2つの課題解決をはかっている。   
+	  > ...  
+	  > WD N4810現在のC++2a標準ライブラリでは、Rangesライブラリ要素として下記CPOを導入する（名前空間stdは省略）。
+	  > 後方互換性維持のため、従来`swap`, `begin`, `end`はC++17ライブラリ仕様のまま維持される。
 	- [Customization pointについて](http://tk0xleader.blog.shinobi.jp/c--/%E3%80%90c--2a%E3%80%91customization%20point%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6) (tk-xleaderのブログ)
 		- `using std::swap;` や、`using namespace std;` として `swap` を非修飾名で呼び出す方法
 			- （探索先にstd名前空間を加えてADLを意図的に引き起こす手段） 
