@@ -24,6 +24,10 @@ semiregular な関数オブジェクト。(callable function object)
 C++20 Concept で必要なチェックをした後に、ADL が有効な文脈に実引数を渡してあげると  
 ADL を制御下に置くことができるようになる。
 
+___customization point___  - [N4381](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html) (2015-03-11)  
+標準ライブラリの関数で、user’s namespace にある user-defined types によって  
+オーバーロードすることができ、かつ、ADL によって見つかるもの。 
+
 ### 背景
 
 ADL
