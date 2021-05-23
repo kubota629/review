@@ -2,6 +2,17 @@
 [P2279R0 (2021-01-15) We need a language mechanism for customization points](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2279r0.html)  - Barry Revzin  
 　参考資料: [(地面を見下ろす少年の足蹴にされる私)](https://onihusube.hatenablog.com/#P2279R0-We-need-a-language-mechanism-for-customization-points)
 
+Existing Static Polymorphism Strategies
+1. Class Template Specification
+2. ADL
+	1. "pure" ADL
+	2. Customization Point Objects (aka CPOs)  
+	   [N4381: Suggested Design for Customization Points](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html)  
+	   2015-03-11 Eric Niebler
+	3. tag_invoke  
+	   [P1895: tag_invoke: A general pattern for supportingcustomisable functions](http://open-std.org/JTC1/SC22/WG21/docs/papers/2019/p1895r0.pdf)  
+	   2019-10-07 Lewis Baker, Eric Niebler, Kirk Shoop
+
 # 参考資料
 - 江添さんの解説
 	- 2010-09-20 [コンセプトの経緯](https://cpplover.blogspot.com/2010/09/blog-post_8970.html)
