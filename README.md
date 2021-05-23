@@ -34,7 +34,7 @@ ADL はそのままだと制御が簡単ではなく (意図しない動作や�
 C++標準ライブラリには、ユーザ側で挙動を変更できる箇所がすでにいくつか存在していた。( C++11 )
 - `std::swap`
 - `std::begin`
-- `std::end` 
+- `std::end` etc.
 
 [N4381](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html) では、
 1. customization point をユーザ定義する際の、現行アプローチの使い勝手の問題点の記述
@@ -94,18 +94,16 @@ void func(Container&& c) {
   auto end = std::ranges::end(c);
 }
 ```
-
-
-## 背景
-
-ADL
-
 - Rangeライブラリ ( C++20: N4861 [PDF](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/n4861.pdf)/[HTML](https://timsong-cpp.github.io/cppwp/n4861/) )
 	- \<concepts\> - [18 Concepts library \[concepts\]](https://timsong-cpp.github.io/cppwp/n4861/#concepts)
 		- `ranges::swap` [\[concept.swappable\]](https://timsong-cpp.github.io/cppwp/n4861/concept.swappable) 
 	- \<ranges\> - [24 Ranges library \[ranges\]](https://timsong-cpp.github.io/cppwp/n4861/#ranges)
 		- `ranges::begin` [\[range.access.begin\]](https://timsong-cpp.github.io/cppwp/n4861/range.access.begin)
-		- `ranges::end` [\[range.access.end\]](https://timsong-cpp.github.io/cppwp/n4861/range.access.end)
+		- `ranges::end` [\[range.access.end\]](https://timsong-cpp.github.io/cppwp/n4861/range.access.end) etc.
+
+## 背景
+
+ADL
 
 # C++0x Concept Maps (concept_map)
 
