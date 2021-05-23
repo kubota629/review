@@ -53,6 +53,21 @@ void func(Container&& c) {
 }
 ```
 
+#### 背景
+
+```cpp
+// 独自のユーザー定義型
+struct X
+{
+    int data[100];
+} ;
+
+// 独自のbegin/end実装
+//  → 独自型の名前空間スコープに、同名の関数/関数テンプレートを書けばよい。ADLで適切な関数が選ばれる。 
+int* begin(X& x) { return data ; }
+int* end(X& x) { return data + 100; }
+```
+
 ### 問題点 2つ
 
 1. 誤って利用されるリスクがある ( 呼び出しが煩雑, 使いづらい )
