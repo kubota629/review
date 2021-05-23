@@ -80,6 +80,9 @@ Existing Static Polymorphism Strategies
 	  > 
 	  > One of the new CPOs from Ranges is `std::ranges::begin`, specified in [\[range.access.begin\]](http://eel.is/c++draft/range.access.begin).  
 	  > `ranges::begin(E)` is expression-equivalent to one of the following, in sequential order:
+	- [UFCS: Customization and Extension](https://brevzin.github.io/c++/2019/08/22/ufcs-custom-extension/) (2019-08-22, Barry Revzin's github) 
+		- Customization
+	- [What is unified function call syntax anyway?](https://brevzin.github.io/c++/2019/04/13/ufcs-history/)  (2019-04-13, Barry Revzin's github) 
 - C++0x Concept
 	- [コンセプトは滅びぬ！何度でもよみがえるさ！コンセプトの力こそC++erの夢だからだ！](https://spinor.hatenablog.com/entry/20111215/1323951052) (spinorのブログ)
 		- `model` という単語は (型がコンセプトを) 満足するという意味の動詞として、  
