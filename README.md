@@ -63,10 +63,7 @@ void func(Container&& c) {
 #### 背景 - ジェネリック:「標準 begin/end」と「ユーザ定義 begin/end」を合わせて扱う
 ```cpp
 // 独自のユーザ定義型
-struct X
-{
-  int data[100];
-} ;
+struct X { int data[100]; };
 
 // 独自のbegin/end実装
 //  → 独自型の名前空間スコープに、同名の関数/関数テンプレートを書けばよい。ADLで適切な関数が選ばれる。 
@@ -76,7 +73,7 @@ int* end(X& x) { return data + 100; }
 
 #### 問題点 2つ
 1. ___error-prone___ : 誤って利用されるリスクがある ( 呼び出しが煩雑, 使いづらい )
-	- `using` とか。原理の説明に込み入った知識を要求するし、誤使用されやすい。
+	- `using` とか。ADL とか。原理の説明に込み入った知識を要求するし、誤使用されやすい。
 		- `using` なしで `std::begin(c)`, `std::end(c)` とするとユーザ定義実装が呼ばれないことが起きる。
 		- ( `using` しないと `std::begin()`, `std::end()` が見つからないことが起きる ※ )
 	- 正しい呼び出し方法が煩雑で、理解するにはC++を深めに理解する事が求められるなど、使いづらい。 
@@ -97,9 +94,9 @@ void func(Container&& c) {
 	- \<ranges\> - [24 Ranges library \[ranges\]](https://timsong-cpp.github.io/cppwp/n4861/#ranges)
 		- `ranges::begin` [\[range.access.begin\]](https://timsong-cpp.github.io/cppwp/n4861/range.access.begin)
 		- `ranges::end` [\[range.access.end\]](https://timsong-cpp.github.io/cppwp/n4861/range.access.end) etc.
-- 従来の customization point になっている関数 を CPO に置き換えたかったが、  
-  互換性の問題からできなかったようです。
-- そのため、CPO は別の名前空間に同名で定義されています。
+- 従来から customization point になっている関数は、( CPO に置き換えたかったが )  
+  後方互換性維持のため C++17 ライブラリ仕様のまま維持されます。
+- CPO は別の名前空間に同名で定義されています。
 
 ## 背景
 
