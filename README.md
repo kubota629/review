@@ -14,8 +14,15 @@ Existing Static Polymorphism Strategies
 	   2019-10-07 Lewis Baker, Eric Niebler, Kirk Shoop
 
 # メモ
+
 ## Customization Point Objects (CPO)
-C++20で導入された新しいデザインパターン。[\[customization.point.object\]](https://timsong-cpp.github.io/cppwp/n4861/customization.point.object)
+C++20で導入された新しいデザインパターン。[\[customization.point.object\]](https://timsong-cpp.github.io/cppwp/n4861/customization.point.object)  
+semiregular な関数オブジェクト。(callable function object)  
+「制約のあるADL (constrained ADL dispatch)」を行うために存在する。  
+  
+C++20 Concept で必要なチェックをした後に、ADL が有効な文脈に実引数を渡してあげると  
+ADL を制御下に置くことができるようになる。
+
 ## C++0x Concept Maps (concept_map)
 
 
