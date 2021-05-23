@@ -47,7 +47,8 @@ Existing Static Polymorphism Strategies
 		- ( Nxxxx は Working Draft の Update であった。 - 参考: [cpprefjp - C++国際標準規格](https://cpprefjp.github.io/international-standard.html) )
 	- [Niebloids and Customization Point Objects](https://brevzin.github.io/c++/2020/12/19/cpo-niebloid/) (2020-12-19, Barry Revzin's github)
 		- [std::ranges::swap (C++20)](https://cpprefjp.github.io/reference/concepts/swap.html) (cpprefjp)
-		- [\[customization.point.object\]](http://eel.is/c++draft/customization.point.object#def:customization_point_object) (c++draft)
+		- [\[customization.point.object\]](http://eel.is/c++draft/customization.point.object#def:customization_point_object) (c++draft)  
+		  > In the standard library, customization point object is a specific term of art that is a semiregular, function object that is const-invocable. And the standard library has a whole bunch of them in the std::ranges namespace (begin, end, swap, etc.) but even a few in plain old std (e.g. strong_order).
 - C++0x Concept
 	- [コンセプトは滅びぬ！何度でもよみがえるさ！コンセプトの力こそC++erの夢だからだ！](https://spinor.hatenablog.com/entry/20111215/1323951052) (spinorのブログ)
 		- `model` という単語は (型がコンセプトを) 満足するという意味の動詞として、  
