@@ -24,6 +24,10 @@ semiregular な関数オブジェクト。(callable function object)
 C++20 Concept で必要なチェックをした後に、ADL が有効な文脈に実引数を渡してあげると  
 ADL を制御下に置くことができるようになる。
 
+### 背景
+
+ADL
+
 ## C++0x Concept Maps (concept_map)
 
 
