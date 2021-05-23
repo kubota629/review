@@ -22,6 +22,9 @@ semiregular な関数オブジェクト。(callable function object)
 C++20 Concept で必要なチェックをした後に、ADL が有効な文脈に実引数を渡してあげると  
 ADL を制御下に置くことができるようになる。
 
+ADL はそのままだと制御が簡単ではなく (意図しない動作やエラー等 制御不能)、  
+もし意図しない適用が起きていたとしても検出できるのは実行時だった。
+
 ## ___customization point___  - [N4381](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html) (2015-03-11)  
 C++標準ライブラリの関数で、user’s namespace にある user-defined types によって  
 オーバーロードすることができ、かつ、ADL によって見つかるもの。 
@@ -36,6 +39,15 @@ C++標準ライブラリには、ユーザー側で挙動を変更できる箇�
 2. 将来の customization point 定義において利用できるデザインパターンの提示
 
 を行うこととしている。
+
+```cpp
+// イテレート可能な範囲を受けて何かする関数
+template<typename Container>
+void func(Container&& c) {
+  using std::begin;
+  auto first = begin(c);
+}
+```
 
 ## 背景
 
