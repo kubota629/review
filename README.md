@@ -25,7 +25,9 @@ Existing Static Polymorphism Strategies
 			- 従来の CP関数 を CPO に置き換えたかったが、互換性の問題からできなかったようです
 			- そのため、CPO は別の名前空間に同名で定義されています。
 		- C++20のカスタマイゼーションポイントオブジェクト
-			- [C++17 CPO, C++20 CPO の対応と一覧](https://onihusube.hatenablog.com/entry/2020/06/26/225920#C20%E3%81%AE%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%8i2%A4%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88) 
+			- [C++17 CPO, C++20 CPO の対応と一覧](https://onihusube.hatenablog.com/entry/2020/06/26/225920#C20%E3%81%AE%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%8i2%A4%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88)
+		- C++23以降の標準ライブラリ  
+		  > 特にC++23に導入されるのがほぼ確実視されているExecutorライブラリは、現段階ですでにコンセプトとカスタマイゼーションポイントオブジェクトベースの非常にジェネリックな最先端のライブラリです。C++23とそれ以降の標準ライブラリではカスタマイゼーションポイントオブジェクトとコンセプトは空気のような存在になるでしょう。 
 	- [Customization Point Object](https://yohhoy.hatenadiary.jp/entry/20190403/p1) (yohhoyの日記)
 	- [Customization pointについて](http://tk0xleader.blog.shinobi.jp/c--/%E3%80%90c--2a%E3%80%91customization%20point%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6) (tk-xleaderのブログ)
 		- `using std::swap;` や、`using namespace std;` として `swap` を非修飾名で呼び出す方法
