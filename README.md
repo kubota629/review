@@ -27,17 +27,17 @@ ADL はそのままだと制御が簡単ではなく (意図しない動作や�
 
 ## ___customization point___  - [N4381](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html) (2015-03-11)  
 
-独自のユーザー定義実装に変更 (カスタマイズ) することができる、C++標準ライブラリの関数。
+独自のユーザ定義実装に変更 (カスタマイズ) することができる、C++標準ライブラリの関数。
 - C++標準ライブラリの関数で、user’s namespace にある user-defined types によって  
 オーバーロードすることができ、かつ、ADL によって見つかるもの。 
 
-C++標準ライブラリには、ユーザー側で挙動を変更できる箇所がすでにいくつか存在していた。( C++11 )
+C++標準ライブラリには、ユーザ側で挙動を変更できる箇所がすでにいくつか存在していた。( C++11 )
 - `std::swap`
 - `std::begin`
 - `std::end` 
 
 [N4381](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html) では、
-1. customization point を定義する際の、現行アプローチの使い勝手の問題点の記述
+1. customization point をユーザ定義する際の、現行アプローチの使い勝手の問題点の記述
 2. 将来の customization point 定義において利用できるデザインパターンの提示
 
 を行うこととしている。
@@ -56,12 +56,15 @@ void func(Container&& c) {
 }
 ```
 - `std::begin`, `std::end` という名前を name lookup で発見できるようにする (`using`)
-- `begin()` を名前空間修飾なしで呼び出す  
-  → unqualified name lookup を行うと ADL も働き、見つかった名前の中でオーバーロード解決が行われる。
+- `begin()`, `end()` を名前空間修飾なしで呼び出す  
+  → unqualified name lookup を行うと ADL も働き、見つかった名前の中でオーバーロード解決が行われる。  
+	- `std`名前空間のもの 及び 配列 には、`std::begin()`, `std::end()` が呼び出されるようになる。
+	- ユーザ定義型に対しては、同じ名前空間内にある `begin()`, `end()` あるいは  
+	  `std::begin()`, `std::end()` を通してメンバ関数の `begin()`, `end()` が呼び出されるようになる。
 #### 背景 - ジェネリック:「標準 begin/end」と「ユーザ定義 begin/end」を合わせて扱う
 
 ```cpp
-// 独自のユーザー定義型
+// 独自のユーザ定義型
 struct X
 {
   int data[100];
@@ -76,6 +79,9 @@ int* end(X& x) { return data + 100; }
 #### 問題点 2つ
 
 1. ___error-prone___ : 誤って利用されるリスクがある ( 呼び出しが煩雑, 使いづらい )
+	- `using` とか。原理の説明に込み入った知識を要求するし、誤使用されやすい。
+		- `using` なしで `std::begin(c)`, `std::end(c)` とするとユーザ定義実装が呼ばれないことが起きる。
+		- ( `using` しないと `std::begin()`, `std::end()` が見つからないことが起きる ※ )
 2. ___constraint bypass___ : 要求される型制約を無視できてしまう ( コンセプトを用いた型制約を強制できない )
 
 ### 新 C++20 Ranges での記述
