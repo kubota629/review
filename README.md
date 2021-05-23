@@ -31,7 +31,7 @@ ADL を制御下に置くことができるようになる。
 - 江添さんの解説
 	- 2010-09-20 [コンセプトの経緯](https://cpplover.blogspot.com/2010/09/blog-post_8970.html)
 	- 2015-05-13 [N4381: Suggested Design for Customization Points](https://cpplover.blogspot.com/2015/05/c2015-04-pre-lenexa-mailings-n4381-n4389.html)
-		- `std::swap`, `std::begin`, `std::end` 
+		- C++11 `std::swap`, `std::begin`, `std::end` 
 - 新しい言語規格ドラフトのレビュー・解説
 	- [カスタマイゼーションポイントオブジェクト (CPO) 概論](https://onihusube.hatenablog.com/entry/2020/06/26/225920) (地面を見下ろす少年の足蹴にされる私)  
 	  > C++における名前探索では修飾名探索と非修飾名探索を行なった後、引数依存名前探索（ADL）を行いオーバーロード候補集合を決定します。この時、非修飾名探索の結果に関数以外のものが含まれているとADLは行われません。逆に言うと、ADLは関数名に対してしか行われません。つまり、関数オブジェクトに対してはADLは発動しません（[6.5.2 Argument-dependent name lookup \[basic.lookup.argdep\]](https://timsong-cpp.github.io/cppwp/n4861/basic.lookup.argdep#3.3)）
