@@ -30,7 +30,8 @@ Existing Static Polymorphism Strategies
 	- [C++の名前解決 ADL その2](https://prettysoft.hatenablog.com/entry/20101129/204558) (プログラミングの教科書を置いておくところ)  
 	  　　　　( Nxxxx は Working Draft の Update版 でした。 - 参考: [cpprefjp - C++国際標準規格](https://cpprefjp.github.io/international-standard.html) )
 		- ADL と関数テンプレート : N1905, N4713
-		- ADL と関数オブジェクト : N3000
+		- ADL と関数オブジェクト : N3000  
+		  > 今まで特に注目されていなかったこの仕組みですが、C++20 では、この関数呼び出しのように見えるのに ADL が働かないという性質がカスタマイゼーションポイントオブジェクト（CPO）として利用されるようです 
 		- ADL とカスタマイゼーションポイント : N3000, [N4741(2018)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/n4741.pdf)
 		- ADL とカスタマイゼーションポイントオブジェクト(CPO) : [N4762(2018)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/n4762.pdf)
 			- CPO というのは、ADL を制御しようとする試み
