@@ -13,6 +13,12 @@ Existing Static Polymorphism Strategies
 	   [P1895: tag_invoke: A general pattern for supportingcustomisable functions](http://open-std.org/JTC1/SC22/WG21/docs/papers/2019/p1895r0.pdf)  
 	   2019-10-07 Lewis Baker, Eric Niebler, Kirk Shoop
 
+# メモ
+## Customization Point Objects (CPO)
+C++20で導入された新しいデザインパターン。
+## C++0x Concept Maps (concept_map)
+
+
 # 参考資料
 - 江添さんの解説
 	- 2010-09-20 [コンセプトの経緯](https://cpplover.blogspot.com/2010/09/blog-post_8970.html)
@@ -59,30 +65,32 @@ Existing Static Polymorphism Strategies
 		- niebloid (Eric Niebler)
 			- [Customization Point Design in C++11 and Beyond](http://ericniebler.com/2014/10/21/customization-point-design-in-c11-and-beyond/)  - 2014-10-21  Eric Niebler
 		- std::tag_invoke (C++23 で導入を目指している)
-	- [Niebloids and Customization Point Objects](https://brevzin.github.io/c++/2020/12/19/cpo-niebloid/) (2020-12-19, Barry Revzin's github)
-		- [std::ranges::swap (C++20)](https://cpprefjp.github.io/reference/concepts/swap.html) (cpprefjp)
-		- [\[customization.point.object\]](http://eel.is/c++draft/customization.point.object#def:customization_point_object) (c++draft)  
-		  > In the standard library, customization point object is a specific term of art that is a semiregular, function object that is const-invocable. And the standard library has a whole bunch of them in the `std::ranges` namespace (`begin`, `end`, `swap`, etc.) but even a few in plain old `std` (e.g. `strong_order`).
-		- Niebloids solve undesired ADL
-			- [\[algorithms.requirements\] 2](http://eel.is/c++draft/algorithms#requirements-2) (c++draft)
-			- [P1292R0: Customization Point Functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1292r0.html)  - 2018-10-08 Matt Calabrese
-			- [STL2 Issue #371](https://github.com/ericniebler/stl2/issues/371)
-		- Niebloids vs Customization Point Objects
-			> In short:  
-			> - a ___customization point object___ is a semiregular, function object (by definition) that exists to handle constrained ADL dispatch for you. `ranges::begin`, `ranges::swap`, etc, are customization point objects.  
-			> - a ___niebloid___ is a colloquial name for the algorithms declared in `std::ranges` that inhibit ADL. The only implementation strategy in standard C++20 for them is to make them function objects, but they are not required to be objects at all (nor are they required to be copyable, etc.) and a possible future language extension would allow them to be implemented as proper function templates.  
-			> 
-			> These terms are completely disjoint - ... 
-	- [Declaratively implementing CPOs](https://brevzin.github.io/c++/2019/09/23/declarative-cpos/) (2019-09-23, Barry Revzin's github)  
-	  > One of the new design patterns in C++20 is something known as a customization point object, or CPO. A CPO is a callable function object, which means you can easily pass it around to other functions without having to worry about the struggle that is passing around other kinds of polymorphic callables (like function templates and overload sets). 
-	  > 
-	  > ...
-	  > 
-	  > One of the new CPOs from Ranges is `std::ranges::begin`, specified in [\[range.access.begin\]](http://eel.is/c++draft/range.access.begin).  
-	  > `ranges::begin(E)` is expression-equivalent to one of the following, in sequential order:
-	- [UFCS: Customization and Extension](https://brevzin.github.io/c++/2019/08/22/ufcs-custom-extension/) (2019-08-22, Barry Revzin's github) 
-		- Customization
-	- [What is unified function call syntax anyway?](https://brevzin.github.io/c++/2019/04/13/ufcs-history/)  (2019-04-13, Barry Revzin's github) 
+	- Barry Revzin's github
+		- [Niebloids and Customization Point Objects](https://brevzin.github.io/c++/2020/12/19/cpo-niebloid/) (2020-12-19)
+			- [std::ranges::swap (C++20)](https://cpprefjp.github.io/reference/concepts/swap.html) (cpprefjp)
+			- [\[customization.point.object\]](http://eel.is/c++draft/customization.point.object#def:customization_point_object) (c++draft)  
+			  > In the standard library, customization point object is a specific term of art that is a semiregular, function object that is const-invocable. And the standard library has a whole bunch of them in the `std::ranges` namespace (`begin`, `end`, `swap`, etc.) but even a few in plain old `std` (e.g. `strong_order`).
+			- Niebloids solve undesired ADL
+				- [\[algorithms.requirements\] 2](http://eel.is/c++draft/algorithms#requirements-2) (c++draft)
+				- [P1292R0: Customization Point Functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1292r0.html)  - 2018-10-08 Matt Calabrese
+				- [STL2 Issue #371](https://github.com/ericniebler/stl2/issues/371)
+			- Niebloids vs Customization Point Objects
+				> In short:  
+				> - a ___customization point object___ is a semiregular, function object (by definition) that exists to handle constrained ADL dispatch for you. `ranges::begin`, `ranges::swap`, etc, are customization point objects.  
+				> - a ___niebloid___ is a colloquial name for the algorithms declared in `std::ranges` that inhibit ADL. The only implementation strategy in standard C++20 for them is to make them function objects, but they are not required to be objects at all (nor are they required to be copyable, etc.) and a possible future language extension would allow them to be implemented as proper function templates.  
+				> 
+				> These terms are completely disjoint - ... 
+		- [Declaratively implementing CPOs](https://brevzin.github.io/c++/2019/09/23/declarative-cpos/) (2019-09-23)  
+		  > One of the new design patterns in C++20 is something known as a customization point object, or CPO. A CPO is a callable function object, which means you can easily pass it around to other functions without having to worry about the struggle that is passing around other kinds of polymorphic callables (like function templates and overload sets). 
+		  > 
+		  > ...
+		  > 
+		  > One of the new CPOs from Ranges is `std::ranges::begin`, specified in [\[range.access.begin\]](http://eel.is/c++draft/range.access.begin).  
+		  > `ranges::begin(E)` is expression-equivalent to one of the following, in sequential order:
+		- [UFCS: Customization and Extension](https://brevzin.github.io/c++/2019/08/22/ufcs-custom-extension/) (2019-08-22) 
+			- Customization
+		- [What is unified function call syntax anyway?](https://brevzin.github.io/c++/2019/04/13/ufcs-history/)  (2019-04-13) 
+	- [言語機能 C++20 コンセプト](https://cpprefjp.github.io/lang/cpp20/concepts.html) (cpprefjp)
 - C++0x Concept
 	- [コンセプトは滅びぬ！何度でもよみがえるさ！コンセプトの力こそC++erの夢だからだ！](https://spinor.hatenablog.com/entry/20111215/1323951052) (spinorのブログ)
 		- `model` という単語は (型がコンセプトを) 満足するという意味の動詞として、  
