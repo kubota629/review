@@ -32,7 +32,7 @@ C++標準ライブラリには、ユーザー側で挙動を変更できる箇�
 - `std::end` 
 
 [N4381](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html) では、
-1. customization point を定義する際の、現行アプローチの使い勝手の問題点
+1. customization point を定義する際の、現行アプローチの使い勝手の問題点の記述
 2. 将来の customization point 定義において利用できるデザインパターンの提示
 
 を行うこととしている。
