@@ -28,6 +28,9 @@ ADL を制御下に置くことができるようになる。
 
 ADL
 
+- Rangeライブラリ
+	- \<ranges\> https://timsong-cpp.github.io/cppwp/n4861/#ranges
+
 ## C++0x Concept Maps (concept_map)
 
 
