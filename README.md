@@ -98,6 +98,7 @@ ADL を制御下に置くことができるようになる。
 			- Customization
 		- [What is unified function call syntax anyway?](https://brevzin.github.io/c++/2019/04/13/ufcs-history/)  (2019-04-13) 
 	- [言語機能 C++20 コンセプト](https://cpprefjp.github.io/lang/cpp20/concepts.html) (cpprefjp)
+	- [リファレンス concepts](https://cpprefjp.github.io/reference/concepts.html) (cpprefjp)
 - C++0x Concept
 	- [コンセプトは滅びぬ！何度でもよみがえるさ！コンセプトの力こそC++erの夢だからだ！](https://spinor.hatenablog.com/entry/20111215/1323951052) (spinorのブログ)
 		- `model` という単語は (型がコンセプトを) 満足するという意味の動詞として、  
