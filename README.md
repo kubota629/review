@@ -89,12 +89,14 @@ int* end(X& x) { return data + 100; }
 bool begin(X& x) { return true; }
 ```
 
-### 対策
-C++20 では、C++標準ライブラリへのCPO導入によって、既存の2つの課題解決をはかっている。
+### 設計のゴール
+C++20 では、C++標準ライブラリ への CPO 導入によって、既存の2つの課題解決をはかっている。  
+(CPO を `begin` として書いています.)
 - 完全修飾名呼び出し (qualified lookup) `std::begin(c);`、または  
   非修飾名呼び出し (unqualified lookup) `using std::begin; begin(c);` は、  
-  いずれの呼び出しでも同じ振る舞いになること。
-- `using std::begin; begin(c);` としても、CPO `begin` が要求する型制約がバイパス (無視, 迂回) されないこと。
+  いずれの呼び出しでも同じ振る舞いになること。  
+  特に、ユーザ定義オーバーロードを引数の名前空間から見つけ出せること。
+- `using std::begin; begin(c);` としても、CPO の `std::begin` が要求する型制約がバイパス (無視, 迂回) されないこと。
 
 ### 新 C++20 Ranges での記述
 ```cpp
