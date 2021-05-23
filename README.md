@@ -54,6 +54,7 @@ Existing Static Polymorphism Strategies
 			- ADL が制御不能であるというところは変わりませんが、  
 			  その前にコンパイル時のチェックができるということで幾分安心できるようになりそう
 		- niebloid (Eric Niebler)
+			- [Customization Point Design in C++11 and Beyond](http://ericniebler.com/2014/10/21/customization-point-design-in-c11-and-beyond/)  - 2014-10-21  Eric Niebler
 		- std::tag_invoke (C++23 で導入を目指している)
 	- [Niebloids and Customization Point Objects](https://brevzin.github.io/c++/2020/12/19/cpo-niebloid/) (2020-12-19, Barry Revzin's github)
 		- [std::ranges::swap (C++20)](https://cpprefjp.github.io/reference/concepts/swap.html) (cpprefjp)
