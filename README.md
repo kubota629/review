@@ -56,8 +56,8 @@ void func(Container&& c) {
 }
 ```
 - `std::begin`, `std::end` という名前を name lookup で発見できるようにする (`using`)
-- 
-
+- `begin()` を名前空間修飾なしで呼び出す  
+  → unqualified name lookup を行うと ADL も働き、見つかった名前の中でオーバーロード解決が行われる。
 #### 背景 - ジェネリック:「標準 begin/end」と「ユーザ定義 begin/end」を合わせて扱う
 
 ```cpp
