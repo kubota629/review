@@ -53,6 +53,12 @@ Existing Static Polymorphism Strategies
 			- [\[algorithms.requirements\] 2](http://eel.is/c++draft/algorithms#requirements-2) (c++draft)
 			- [P1292R0: Customization Point Functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1292r0.html)  - 2018-10-08 Matt Calabrese
 			- [STL2 Issue #371](https://github.com/ericniebler/stl2/issues/371)
+		- Niebloids vs Customization Point Objects
+			> In short:  
+			> - a ___customization point object___ is a semiregular, function object (by definition) that exists to handle constrained ADL dispatch for you. `ranges::begin`, `ranges::swap`, etc, are customization point objects.  
+			> - a ___niebloid___ is a colloquial name for the algorithms declared in `std::ranges` that inhibit ADL. The only implementation strategy in standard C++20 for them is to make them function objects, but they are not required to be objects at all (nor are they required to be copyable, etc.) and a possible future language extension would allow them to be implemented as proper function templates.  
+			> 
+			> These terms are completely disjoint - ... 
 - C++0x Concept
 	- [コンセプトは滅びぬ！何度でもよみがえるさ！コンセプトの力こそC++erの夢だからだ！](https://spinor.hatenablog.com/entry/20111215/1323951052) (spinorのブログ)
 		- `model` という単語は (型がコンセプトを) 満足するという意味の動詞として、  
