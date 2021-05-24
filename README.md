@@ -236,12 +236,18 @@ ADL
 	- [N3629 (2013-04-09) - Simplifying C++0x Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3629.pdf)  - Doug Gregor
 
 ＃ 実装の研究
+
 ## GCC
-https://gcc.gnu.org/projects/cxx-status.html#cxx20  
-https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2020  
+- C++20 実装状況
+	- [C++20 Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx20)  
+	- [Implementation Status - Table 1.9. C++ 2020 Library Features](https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2020)
+
 | Library Feature | Status |
 | --- | --- |
 | Ranges and Concepts | 10.1 |
+
+- 実装:
+
 ## MS STL
 - 実装: https://github.com/microsoft/STL/blob/main/stl/inc/xutility#L2101-L2168
 	- [blame](https://github.com/microsoft/STL/blame/cb3718935a7c506196d48f25a68447657f731744/stl/inc/xutility#L2101-L2168)
