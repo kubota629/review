@@ -96,7 +96,8 @@ bool begin(X& x) { return true; }
 - [\[basic.lookup.argdep\] 3](https://timsong-cpp.github.io/cppwp/n4861/basic.lookup.argdep#3)  
 	- unqualified lookup の結果として得られた集合に「関数オブジェクト」のような  
 	  「 (本物の) 関数 や 関数テンプレート でないもの」が含まれていると ADL は適用されない.
-		- → __関数オブジェクト に対して ADL は発動しない__
+		- → __関数オブジェクト に対して ADL は発動しない。__
+		- → 必ず意図したものが呼ばれるようにコンパイルされるので、そこに何かのチェックを咬ませることが簡単にできる。
 	- [Argument-dependent name lookup \[basic.lookup.argdep\] (3.3)](https://timsong-cpp.github.io/cppwp/n4861/basic.lookup.argdep#3.3)
 - [\[algorithms.requirements\] 2](https://timsong-cpp.github.io/cppwp/n4861/algorithms.requirements#2)
 - [\[namespace.std\] 2](https://timsong-cpp.github.io/cppwp/n4861/namespace.std#7)
