@@ -304,4 +304,10 @@ void func(Container&& c) {
 ```
 inc$ grep -nr "inline constexpr" * | grep begin
 xutility:2167:        inline constexpr _Begin::_Cpo begin;
+  :
+inc$ grep -nr "inline constexpr" * | grep distance
+xutility:3063:    inline constexpr _Distance_fn distance{_Not_quite_object::_Construct_tag{}};
+  :
 ```
+- distance: https://github.com/microsoft/STL/blob/main/stl/inc/xutility#L3009-L3063
+	-  [ADLを無効にする関数定義](https://cpprefjp.github.io/article/lib/disable_adl_function.html) (cpprefjp) ※
