@@ -17,10 +17,10 @@ Existing Static Polymorphism Strategies
 - Customization Point Objects (CPO)
 - C++0x Concept Maps (concept_map)
 - 参考資料
-- 実装の研究
+- 実装の研究 - CPO
 	-  GCC libstdc++-v3
-	-  MS STL
 	-  LLVM libcxx
+	-  MS STL
 
 # Customization Point Objects (CPO)
 C++20 で導入された新しいデザインパターン。[\[customization.point.object\]](https://timsong-cpp.github.io/cppwp/n4861/customization.point.object)  
@@ -272,12 +272,13 @@ void func(Container&& c) {
 	- [C++0x Concepts — Historical FAQs](https://isocpp.org/wiki/faq/cpp0x-concepts-history)
 	- [N3629 (2013-04-09) - Simplifying C++0x Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3629.pdf)  - Doug Gregor
 
-# 実装の研究
+# 実装の研究 - CPO
 ## GCC libstdc++-v3
 - 実装
 	- https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/include/bits/iterator_concepts.h#L928-L976
 	- https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/include/bits/ranges_base.h#L97-L131
 	- https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/include/bits/ranges_base.h#L562
+	- ( [初版](https://github.com/gcc-mirror/gcc/commit/6d0dff49ca1539e14647c04cc1bb035ef4c2780b#diff-2ccfc1aaac6d2b578a5ed67e33d93ef8ab6aab88e7a8002ba30026e4dbb79b6a) [bits/range_access.h](https://github.com/gcc-mirror/gcc/blob/6d0dff49ca1539e14647c04cc1bb035ef4c2780b/libstdc%2B%2B-v3/include/bits/range_access.h#L384-L430) , 2019-10-30 ) 
 - 状況:
 	- [C++20 Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx20)  
 	- [Implementation Status - Table 1.9. C++ 2020 Library Features](https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2020)
@@ -285,15 +286,6 @@ void func(Container&& c) {
 | Library Feature | Status |
 | --- | --- |
 | Ranges and Concepts | 10.1 |
-
-## MS STL
-- 実装: https://github.com/microsoft/STL/blob/main/stl/inc/xutility#L2101-L2168
-	- [blame](https://github.com/microsoft/STL/blame/cb3718935a7c506196d48f25a68447657f731744/stl/inc/xutility#L2101-L2168)
-	- [初版](https://github.com/microsoft/STL/commit/c5e2e3f799ba1892c2143eb65a8dd1dd5024edb3) (2019-09-10)
-```
-inc$ grep -nr "inline constexpr" * | grep begin
-xutility:2167:        inline constexpr _Begin::_Cpo begin;
-```
 
 ## LLVM libcxx
 - 実装: https://github.com/llvm/llvm-project/blob/main/libcxx/include/__ranges/access.h#L39-L100
@@ -304,3 +296,12 @@ xutility:2167:        inline constexpr _Begin::_Cpo begin;
 | Section | Description | Dependencies | Patch |
 | --- | --- | --- | --- |
 | \[range.access\] | ranges::begin, end, cbegin, cend, rbegin, rend, crbegin, and crend | \[iterator.concepts\] | [D100255](https://reviews.llvm.org/D100255) |
+
+## MS STL
+- 実装: https://github.com/microsoft/STL/blob/main/stl/inc/xutility#L2101-L2168
+	- [blame](https://github.com/microsoft/STL/blame/cb3718935a7c506196d48f25a68447657f731744/stl/inc/xutility#L2101-L2168)
+	- [初版](https://github.com/microsoft/STL/commit/c5e2e3f799ba1892c2143eb65a8dd1dd5024edb3) (2019-09-10)
+```
+inc$ grep -nr "inline constexpr" * | grep begin
+xutility:2167:        inline constexpr _Begin::_Cpo begin;
+```
