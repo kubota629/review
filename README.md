@@ -309,5 +309,9 @@ inc$ grep -nr "inline constexpr" * | grep distance
 xutility:3063:    inline constexpr _Distance_fn distance{_Not_quite_object::_Construct_tag{}};
   :
 ```
-- distance: https://github.com/microsoft/STL/blob/main/stl/inc/xutility#L3009-L3063
+- std::ranges::distance : https://github.com/microsoft/STL/blob/main/stl/inc/xutility#L3009-L3063
+	-  [\[range.iter.ops\] 2](https://timsong-cpp.github.io/cppwp/n4861/range.iter.ops#2)
 	-  [ADLを無効にする関数定義](https://cpprefjp.github.io/article/lib/disable_adl_function.html) (cpprefjp) ※
+- std::ranges::find :  https://github.com/microsoft/STL/blob/main/stl/inc/xutility#L5352-L5421
+	- [\[algorithms.requirements\] 2](https://timsong-cpp.github.io/cppwp/n4861/algorithms.requirements#2)
+	- [What is a niebloid?](https://stackoverflow.com/questions/62928396/what-is-a-niebloid) (stackoverflow)
