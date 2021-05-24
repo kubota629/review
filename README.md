@@ -15,7 +15,8 @@ Existing Static Polymorphism Strategies
 
 # Customization Point Objects (CPO)
 C++20 で導入された新しいデザインパターン。[\[customization.point.object\]](https://timsong-cpp.github.io/cppwp/n4861/customization.point.object)  
-  
+- [N4381: Suggested Design for Customization Points](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html) (2015-03-11) Eric Niebler
+
 semiregular な関数オブジェクト。 ( callable function object )  
 「制約のある ADL (constrained ADL dispatch)」を行うために存在する。  
   
@@ -25,7 +26,7 @@ ADL が有効な文脈に実引数を渡すことによって、ADL を制御下
 ADL はそのままだと制御が簡単ではなく、( 意図しない動作やエラー等, 若干制御不能. )  
 もし意図しない適用が起きていたとしても検出できるのは実行時だった。
 
-CPO は、ADL を制御しようとする試みです。 (`niebloid`を実現する実装方法の1つ)
+CPO は、ADL を制御しようとする試みです。 ( `niebloid`を実現する実装方法の 1つ )
 
 - 用語
 	- ADL : Argument-dependent name lookup
@@ -33,7 +34,7 @@ CPO は、ADL を制御しようとする試みです。 (`niebloid`を実現す
 	- niebloid : ADL を妨げることができるアルゴリズム全般のこと。
 
 ## ___customization point___
-独自のユーザ定義実装に変更 (カスタマイズ) することができる、C++標準ライブラリ (STL) の関数。 - [N4381](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html) (2015-03-11)
+独自のユーザ定義実装に変更 (カスタマイズ) することができる、C++標準ライブラリ (STL) の関数。 - [N4381](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html)
 - C++標準ライブラリの関数で、user’s namespace にある user-defined types によって  
 オーバーロードすることができ、かつ、ADL によって見つかるもの。 
 
