@@ -13,20 +13,42 @@ Existing Static Polymorphism Strategies
 	   [P1895: tag_invoke: A general pattern for supportingcustomisable functions](http://open-std.org/JTC1/SC22/WG21/docs/papers/2019/p1895r0.pdf)  
 	   2019-10-07 Lewis Baker, Eric Niebler, Kirk Shoop
 
+# 目次
+- Customization Point Objects (CPO)
+- C++0x Concept Maps (concept_map)
+- 参考資料
+- 実装の研究
+	-  GCC libstdc++-v3
+	-  MS STL
+	-  LLVM libcxx
+
 # Customization Point Objects (CPO)
 C++20 で導入された新しいデザインパターン。[\[customization.point.object\]](https://timsong-cpp.github.io/cppwp/n4861/customization.point.object)  
-- [N4381: Suggested Design for Customization Points](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html) (2015-03-11) Eric Niebler
 
 semiregular な関数オブジェクト。 ( callable function object )  
-「制約のある ADL (constrained ADL dispatch)」を行うために存在する。  
-  
+「制約のある ADL (constrained ADL dispatch)」を行うために存在する。 
+```cpp
+// 関数オブジェクト
+struct functor {
+  void operator()(int i) { std::cout << i << std::endl; }
+};
+```
+
+- 提案
+	- [N4381: Suggested Design for Customization Points](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html)  
+		- 2015-03-11 Eric Niebler
+	- [Customization Point Design in C++11 and Beyond](http://ericniebler.com/2014/10/21/customization-point-design-in-c11-and-beyond/)
+		- 2014-10-21 Eric Niebler
+
 関数オブジェクトにて C++20 Concept による必要なチェックをした後、(`model`)  
 ADL が有効な文脈に実引数を渡すことによって、ADL を制御下に置くことができるようになる。
 
 ADL はそのままだと制御が簡単ではなく、( 意図しない動作やエラー等, 若干制御不能. )  
-もし意図しない適用が起きていたとしても検出できるのは実行時だった。
+もし意図しない適用が起きていたとしても検出できるのは実行時だったり難しい。
 
 CPO は、ADL を制御しようとする試みです。 ( `niebloid`を実現する実装方法の 1つ )
+
+C++23 検討中の Executor ライブラリは、Concept と CPO ベースの非常にジェネリックな最先端のライブラリになっている。
 
 - 用語
 	- ADL : Argument-dependent name lookup
