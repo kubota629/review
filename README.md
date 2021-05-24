@@ -250,8 +250,11 @@ void func(Container&& c) {
 	- [N3629 (2013-04-09) - Simplifying C++0x Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3629.pdf)  - Doug Gregor
 
 # 実装の研究
-## GCC
-- 実装:
+## GCC libstdc++-v3
+- 実装
+	- https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/include/bits/iterator_concepts.h#L928-L976
+	- https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/include/bits/ranges_base.h#L97-L131
+	- https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/include/bits/ranges_base.h#L562
 - 状況:
 	- [C++20 Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx20)  
 	- [Implementation Status - Table 1.9. C++ 2020 Library Features](https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2020)
