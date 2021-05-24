@@ -220,3 +220,9 @@ ADL
 - ISO C++ Paper/Information
 	- [C++0x Concepts — Historical FAQs](https://isocpp.org/wiki/faq/cpp0x-concepts-history)
 	- [N3629 (2013-04-09) - Simplifying C++0x Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3629.pdf)  - Doug Gregor
+
+https://gcc.gnu.org/projects/cxx-status.html#cxx20  
+https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2020  
+| Library Feature | Status |
+| --- | --- |
+| Ranges and Concepts | 10.1 |
