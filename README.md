@@ -161,7 +161,10 @@ void func(Container&& c) {
 	- 2015-05-13 [N4381: Suggested Design for Customization Points](https://cpplover.blogspot.com/2015/05/c2015-04-pre-lenexa-mailings-n4381-n4389.html)
 		- C++11 `std::swap`, `std::begin`, `std::end` 
 - 新しい言語規格ドラフトのレビュー・解説
-	- [What are customization point objects and how to use them?](https://stackoverflow.com/questions/53495848/what-are-customization-point-objects-and-how-to-use-them)  
+	- [What are customization point objects and how to use them?](https://stackoverflow.com/questions/53495848/what-are-customization-point-objects-and-how-to-use-them) (stackoverflow)
+	- [Customization pointについて](http://tk0xleader.blog.shinobi.jp/c--/%E3%80%90c--2a%E3%80%91customization%20point%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6) (tk-xleaderのブログ)
+		- `using std::swap;` や、`using namespace std;` として `swap` を非修飾名で呼び出す方法
+			- (探索先にstd名前空間を加えてADLを意図的に引き起こす手段)
 	- 地面を見下ろす少年の足蹴にされる私
 		- [カスタマイゼーションポイントオブジェクト (CPO) 概論](https://onihusube.hatenablog.com/entry/2020/06/26/225920) (2020-06-26)
 		  > C++における名前探索では修飾名探索と非修飾名探索を行なった後、引数依存名前探索（ADL）を行いオーバーロード候補集合を決定します。この時、非修飾名探索の結果に関数以外のものが含まれているとADLは行われません。逆に言うと、ADLは関数名に対してしか行われません。つまり、関数オブジェクトに対してはADLは発動しません（[6.5.2 Argument-dependent name lookup \[basic.lookup.argdep\]](https://timsong-cpp.github.io/cppwp/n4861/basic.lookup.argdep#3.3)）
@@ -181,10 +184,6 @@ void func(Container&& c) {
 		  > WD N4810現在のC++2a標準ライブラリでは、Rangesライブラリ要素として下記CPOを導入する（名前空間stdは省略）。
 		  > 後方互換性維持のため、従来`swap`, `begin`, `end`はC++17ライブラリ仕様のまま維持される。
 		- [関数テンプレート特殊化とADLの小改善](https://yohhoy.hatenadiary.jp/entry/20181215/p1) (2018-12-15)
-	- [Customization pointについて](http://tk0xleader.blog.shinobi.jp/c--/%E3%80%90c--2a%E3%80%91customization%20point%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6) (tk-xleaderのブログ)
-		- `using std::swap;` や、`using namespace std;` として `swap` を非修飾名で呼び出す方法
-			- (探索先にstd名前空間を加えてADLを意図的に引き起こす手段)
-(stackoverflow)
 - C++言語規格の資料
 	- [C++の名前解決](https://prettysoft.hatenablog.com/entry/20101128/1497356882) (プログラミングの教科書を置いておくところ)
 	- [C++の名前解決 ADL その2](https://prettysoft.hatenablog.com/entry/20101129/204558) (プログラミングの教科書を置いておくところ)  
