@@ -99,6 +99,8 @@ bool begin(X& x) { return true; }
 		- → __関数オブジェクト に対して ADL は発動しない__
 	- [Argument-dependent name lookup \[basic.lookup.argdep\] (3.3)](https://timsong-cpp.github.io/cppwp/n4861/basic.lookup.argdep#3.3)
 - [\[algorithms.requirements\] 2](https://timsong-cpp.github.io/cppwp/n4861/algorithms.requirements#2)
+- [\[namespace.std\] 2](https://timsong-cpp.github.io/cppwp/n4861/namespace.std#7)
+	- [\[namespace.std\] 173)](https://timsong-cpp.github.io/cppwp/n4861/namespace.std#footnote-173)
 
 ### 設計のゴール
 C++20 では、C++標準ライブラリ への CPO 導入によって、既存の2つの課題解決をはかっている。  
