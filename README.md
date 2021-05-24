@@ -17,15 +17,15 @@ Existing Static Polymorphism Strategies
 C++20 で導入された新しいデザインパターン。[\[customization.point.object\]](https://timsong-cpp.github.io/cppwp/n4861/customization.point.object)  
   
 semiregular な関数オブジェクト。 ( callable function object )  
-「 制約のある `ADL` (constrained ADL dispatch) 」を行うために存在する。  
+「制約のある ADL (constrained ADL dispatch)」を行うために存在する。  
   
-関数オブジェクトにて C++20 Concept による必要なチェックをした後、( `model` )  
+関数オブジェクトにて C++20 Concept による必要なチェックをした後、(`model`)  
 ADL が有効な文脈に実引数を渡すことによって、ADL を制御下に置くことができるようになる。
 
 ADL はそのままだと制御が簡単ではなく、( 意図しない動作やエラー等, 若干制御不能. )  
 もし意図しない適用が起きていたとしても検出できるのは実行時だった。
 
-CPO は、ADL を制御しようとする試みです。 ( `niebloid`を実現する実装方法の 1つ. )
+CPO は、ADL を制御しようとする試みです。 (`niebloid`を実現する実装方法の1つ)
 
 - 用語
 	- ADL : Argument-dependent name lookup
@@ -78,13 +78,20 @@ int* begin(X& x) { return data; }
 int* end(X& x) { return data + 100; }
 ```
 
-#### 問題点 2つ
+### 問題点 2つ
 1. ___error-prone___ : 誤って利用されるリスクがある ( 呼び出しが煩雑, 使いづらい )
 	- `using` とか。ADL とか。原理の説明に込み入った知識を要求するし、誤使用されやすい。
-		- `using` なしで `std::begin(c)`, `std::end(c)` とするとユーザ定義実装が呼ばれないことが起きる。
+		- `using` 無しで `std::begin(c)`, `std::end(c)` とすると (下記)、ユーザ定義実装が呼ばれないことが起きる。
 		- ( `using` しないと `std::begin()`, `std::end()` が見つからないことが起きる ※ )
 			- [関数テンプレート特殊化とADLの小改善](https://yohhoy.hatenadiary.jp/entry/20181215/p1) (yohhoyの日記)
 	- 正しい呼び出し方法が煩雑で、C++ を深めに理解する事が求められるなど、使いづらい。 
+```cpp
+template<typename Container>
+void func(Container&& c) {
+  auto itr = std::begin(c);
+  auto end = std::end(c);
+}
+```
 2. ___constraint bypass___ : 要求される型制約を無視できてしまう ( コンセプトを用いた型制約を強制できない )
 	- 標準ライブラリの `std` 側で C++20 Concept による制約をしても、  
 	  ADL 経由で制約を満たさない `begin()` が呼ばれることがある。  
@@ -94,6 +101,19 @@ int* end(X& x) { return data + 100; }
 //   → 名前が同じで, 全く異なる意味を持つ関数が定義されていると未定義動作に陥る可能性がある.
 bool begin(X& x) { return true; }
 ```
+
+### 設計のゴール
+- 完全修飾名呼び出し (qualified lookup) `std::begin(c);`、または  
+  非修飾名呼び出し (unqualified lookup) `using std::begin; begin(c);` は、  
+  いずれの呼び出しであっても同じ振る舞いになるようにすること。  
+  (そして) 特に、ユーザ定義オーバーロードを引数の名前空間から見つけ出せること。 
+- `using std::begin; begin(c);` としても、CPO の `std::begin` が要求する型制約がバイパス (無視, 迂回) されないこと。
+	- 関数オブジェクトである事によって防止される。
+ 
+C++20 では、C++標準ライブラリ への CPO 導入によって、既存の 2つ の課題解決をはかっている。  
+(※ 上記、単にわかりやすさの為だけに CPO を `begin` で書いてしまっています. お許しを.)  
+
+実際には C++20 では `std::ranges::begin()` で解決している。
 
 ##### メモ
 ##### N4381 が提案していること
@@ -110,19 +130,6 @@ bool begin(X& x) { return true; }
 - [\[algorithms.requirements\] 2](https://timsong-cpp.github.io/cppwp/n4861/algorithms.requirements#2)
 - [\[namespace.std\] 2](https://timsong-cpp.github.io/cppwp/n4861/namespace.std#7)
 	- [\[namespace.std\] 173)](https://timsong-cpp.github.io/cppwp/n4861/namespace.std#footnote-173)
-
-### 設計のゴール
-- 完全修飾名呼び出し (qualified lookup) `std::begin(c);`、または  
-  非修飾名呼び出し (unqualified lookup) `using std::begin; begin(c);` は、  
-  いずれの呼び出しでも同じ振る舞いになること。  
-  (そして) 特に、ユーザ定義オーバーロードを引数の名前空間から見つけ出せること。 
-- `using std::begin; begin(c);` としても、CPO の `std::begin` が要求する型制約がバイパス (無視, 迂回) されないこと。
-	- 関数オブジェクトである事によって防止される。
- 
-C++20 では、C++標準ライブラリ への CPO 導入によって、既存の 2つ の課題解決をはかっている。  
-(単にわかりやすさの為だけに CPO を `begin` で書いています. お許しを.)  
-
-実際には C++20 では `std::ranges::begin()` で解決している。
 
 ### 新 C++20 Ranges での記述
 ```cpp
