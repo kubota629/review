@@ -29,7 +29,7 @@ CPO は、ADL を制御しようとする試みです。 ( `niebloid`を実現�
 
 - 用語
 	- ADL : Argument-dependent name lookup
-	- model : Concept に適合すること。また適合している型(の集合)。
+	- model : [Concept](https://cpprefjp.github.io/reference/concepts.html) に適合すること。また適合している型(の集合)。
 	- niebloid : ADL を妨げることができるアルゴリズム全般のこと。
 
 ## ___customization point___
@@ -83,6 +83,7 @@ int* end(X& x) { return data + 100; }
 	- `using` とか。ADL とか。原理の説明に込み入った知識を要求するし、誤使用されやすい。
 		- `using` なしで `std::begin(c)`, `std::end(c)` とするとユーザ定義実装が呼ばれないことが起きる。
 		- ( `using` しないと `std::begin()`, `std::end()` が見つからないことが起きる ※ )
+			- [関数テンプレート特殊化とADLの小改善](https://yohhoy.hatenadiary.jp/entry/20181215/p1) (yohhoyの日記)
 	- 正しい呼び出し方法が煩雑で、C++ を深めに理解する事が求められるなど、使いづらい。 
 2. ___constraint bypass___ : 要求される型制約を無視できてしまう ( コンセプトを用いた型制約を強制できない )
 	- 標準ライブラリの `std` 側で C++20 Concept による制約をしても、  
