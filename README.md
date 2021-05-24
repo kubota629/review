@@ -93,6 +93,8 @@ bool begin(X& x) { return true; }
 ##### N4381 が提案していること
 ##### std::ranges::begin が定義していること
 ##### 関数オブジェクトと ADL について
+- [Argument-dependent name lookup \[basic.lookup.argdep\] (3.3)](https://timsong-cpp.github.io/cppwp/n4861/basic.lookup.argdep#3.3)
+- [\[algorithms.requirements\] 2](https://timsong-cpp.github.io/cppwp/n4861/algorithms.requirements#2)
 
 ### 設計のゴール
 C++20 では、C++標準ライブラリ への CPO 導入によって、既存の2つの課題解決をはかっている。  
