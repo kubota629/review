@@ -235,10 +235,10 @@ ADL
 	- [C++0x Concepts — Historical FAQs](https://isocpp.org/wiki/faq/cpp0x-concepts-history)
 	- [N3629 (2013-04-09) - Simplifying C++0x Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3629.pdf)  - Doug Gregor
 
-＃ 実装の研究
-
+# 実装の研究
 ## GCC
-- C++20 実装状況
+- 実装:
+- 状況:
 	- [C++20 Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx20)  
 	- [Implementation Status - Table 1.9. C++ 2020 Library Features](https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2020)
 
@@ -246,17 +246,21 @@ ADL
 | --- | --- |
 | Ranges and Concepts | 10.1 |
 
-- 実装:
-
-## LLVM libcxx
-- [libc++ Ranges Status](https://libcxx.llvm.org/docs/RangesStatus.html)
-	- [github](https://github.com/llvm/llvm-project/tree/main/libcxx/include) : `<concepts>` はあるけど `<ranges>` はまだない。 
-
 ## MS STL
+- 実装: https://github.com/microsoft/STL/blob/main/stl/inc/xutility#L2101-L2168
+	- [blame](https://github.com/microsoft/STL/blame/cb3718935a7c506196d48f25a68447657f731744/stl/inc/xutility#L2101-L2168)
+	- [初版](https://github.com/microsoft/STL/commit/c5e2e3f799ba1892c2143eb65a8dd1dd5024edb3) (2019-09-10)
 ```
 inc$ grep -nr "inline constexpr" * | grep begin
 xutility:2167:        inline constexpr _Begin::_Cpo begin;
 ```
-- 実装: https://github.com/microsoft/STL/blob/main/stl/inc/xutility#L2101-L2168
-	- [blame](https://github.com/microsoft/STL/blame/cb3718935a7c506196d48f25a68447657f731744/stl/inc/xutility#L2101-L2168)
-	- [初版](https://github.com/microsoft/STL/commit/c5e2e3f799ba1892c2143eb65a8dd1dd5024edb3) (2019-09-10)
+
+## LLVM libcxx
+- 実装: https://github.com/llvm/llvm-project/blob/main/libcxx/include/__ranges/access.h#L39-L100
+- 状況: [libc++ Ranges Status](https://libcxx.llvm.org/docs/RangesStatus.html)
+	- [github](https://github.com/llvm/llvm-project/tree/main/libcxx/include) : `<concepts>` はあるけど `<ranges>` はまだない。
+	- 2021-04-30 に初版がコミットされた。`include/__ranges/access.h`.
+
+| Section | Description | Dependencies | Patch |
+| --- | --- | --- | --- |
+| \[range.access\] | ranges::begin, end, cbegin, cend, rbegin, rend, crbegin, and crend | \[iterator.concepts\] | [D100255](https://reviews.llvm.org/D100255) |
