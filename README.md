@@ -138,12 +138,9 @@ void func(Container&& c) {
 	- CPO は別の名前空間に同名で定義される。
 	- 従来の関数は lookup されないようにしている ※
 
-## 背景
-
-ADL
-
 # C++0x Concept Maps (concept_map)
 
+(まだ.)
 
 # 参考資料
 - 江添さんの解説
