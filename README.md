@@ -248,7 +248,15 @@ ADL
 
 - 実装:
 
+## LLVM libcxx
+- [libc++ Ranges Status](https://libcxx.llvm.org/docs/RangesStatus.html)
+	- [github](https://github.com/llvm/llvm-project/tree/main/libcxx/include) : `<concepts>` はあるけど `<ranges>` はまだない。 
+
 ## MS STL
+```
+inc$ grep -nr "inline constexpr" * | grep begin
+xutility:2167:        inline constexpr _Begin::_Cpo begin;
+```
 - 実装: https://github.com/microsoft/STL/blob/main/stl/inc/xutility#L2101-L2168
 	- [blame](https://github.com/microsoft/STL/blame/cb3718935a7c506196d48f25a68447657f731744/stl/inc/xutility#L2101-L2168)
 	- [初版](https://github.com/microsoft/STL/commit/c5e2e3f799ba1892c2143eb65a8dd1dd5024edb3) (2019-09-10)
