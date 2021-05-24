@@ -106,15 +106,17 @@ bool begin(X& x) { return true; }
 	- [\[namespace.std\] 173)](https://timsong-cpp.github.io/cppwp/n4861/namespace.std#footnote-173)
 
 ### 設計のゴール
-C++20 では、C++標準ライブラリ への CPO 導入によって、既存の2つの課題解決をはかっている。  
-(CPO を `begin` として書いています.)
 - 完全修飾名呼び出し (qualified lookup) `std::begin(c);`、または  
   非修飾名呼び出し (unqualified lookup) `using std::begin; begin(c);` は、  
   いずれの呼び出しでも同じ振る舞いになること。  
-  特に、ユーザ定義オーバーロードを引数の名前空間から見つけ出せること。
-	- aaa  
+  (そして) 特に、ユーザ定義オーバーロードを引数の名前空間から見つけ出せること。 
 - `using std::begin; begin(c);` としても、CPO の `std::begin` が要求する型制約がバイパス (無視, 迂回) されないこと。
-	- 関数オブジェクトである事によって防止される。 
+	- 関数オブジェクトである事によって防止される。
+ 
+C++20 では、C++標準ライブラリ への CPO 導入によって、既存の 2つ の課題解決をはかっている。  
+(単にわかりやすさの為だけに CPO を `begin` で書いています. お許しを.)  
+
+実際には C++20 では `std::ranges::begin()` で解決している。
 
 ### 新 C++20 Ranges での記述
 ```cpp
@@ -134,6 +136,7 @@ void func(Container&& c) {
 - 従来から customization point になっている関数は、( CPO に置き換えたかったが )  
   後方互換性維持のため C++17 ライブラリ仕様のまま維持される。
 	- CPO は別の名前空間に同名で定義される。
+	- 従来の関数は lookup されないようにしている ※
 
 ## 背景
 
