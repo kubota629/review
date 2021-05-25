@@ -125,7 +125,7 @@ void func(Container&& c) {
 bool begin(X& x) { return true; }
 ```
 
-### 設計のゴール
+### 設計のゴール (Design Goals)
 - 完全修飾名呼び出し (qualified lookup) `std::begin(c);`、または  
   非修飾名呼び出し (unqualified lookup) `using std::begin; begin(c);` は、  
   いずれの呼び出しであっても同じ振る舞いになるようにすること。  
@@ -138,10 +138,51 @@ C++20 では、C++標準ライブラリ への CPO 導入によって、既存�
 
 実際には C++20 では `std::ranges::begin()` で解決している。
 
-##### メモ
-##### N4381 が提案していること
-##### std::ranges::begin が定義していること
-##### 関数オブジェクトと ADL について
+### 設計の詳細 (Design Details)
+#### [N4381](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html) が提案していること
+```cpp
+namespace std {
+  namespace __detail {
+    // define begin for arrays
+    template <class T, size_t N>
+    constexpr T* begin(T (&a)[N]) noexcept {
+      return a;
+    }
+
+    // Define begin for containers
+    // (trailing return type needed for SFINAE)
+    template <class _RangeLike>
+    constexpr auto begin(_RangeLike && rng) ->
+      decltype(forward<_RangeLike>(rng).begin()) {
+      return forward<_RangeLike>(rng).begin();
+    }
+
+    struct __begin_fn {
+      template <class R>
+      constexpr auto operator()(R && rng) const
+        noexcept(noexcept(begin(forward<R>(rng)))) ->
+        decltype(begin(forward<R>(rng))) {
+        return begin(forward<R>(rng));  // ★2: constrained ADL dispatch
+      }
+    };
+  }
+
+  // To avoid ODR violations:
+  template <class T>
+  constexpr T __static_const{};
+
+  // std::begin is a global function object
+  namespace {
+    constexpr auto const & begin =
+        __static_const<__detail::__begin_fn>;  // ★1: 関数オブジェクト (inhibit ADL)
+  }
+}i
+```
+#### std::ranges::begin が定義していること
+
+　( まだ. )
+
+#### 関数オブジェクトと ADL について
 - [\[basic.lookup.argdep\] 3](https://timsong-cpp.github.io/cppwp/n4861/basic.lookup.argdep#3)  
 	- unqualified lookup の結果として得られた集合に「関数オブジェクト」のような  
 	  「 (本物の) 関数 や 関数テンプレート でないもの」が含まれていると ADL は一切適用されない.
@@ -177,7 +218,7 @@ void func(Container&& c) {
 
 # C++0x Concept Maps (concept_map)
 
-(まだ.)
+　( まだ. )
 
 # 参考資料
 - 江添さんの解説
