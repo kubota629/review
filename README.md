@@ -307,6 +307,17 @@ customization point をユーザ定義にカスタマイズすることができ
 - おまけ: Concept Map が生まれた経緯
 	- [What were C++0x concept maps?](https://isocpp.org/wiki/faq/cpp0x-concepts-history#cpp0x-concept-maps) (isocpp.org : C++0x Concepts — Historical FAQs)
 
+### 本題 paper レビュー
+[3.3 C++0x Concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2279r0.html#c0x-concepts) - P2279R0: We need a language mechanism for customization points
+- C++0x Concepts は、Rust の `trait` が実現していることと同じ解決方法。特に違いは無い。記述が簡素。
+	- ( customization point objects, tag_invoke, customization point functions は記述が多くなる )
+- customization point objects, tag_invoke, customization point functions は、
+	- 独立した customization point で切り替える。
+	- 関係が近いことを示すには `concept` (C++20 Concept) でグループ化することになる。
+- C++0x Concepts だと customization point が集まってる。
+	- ただ、opt-in mechanism が少し違ってる。`concept_map` を使う。
+	- invocation model も違う。callable じゃないので forward で転送できないっぽい。
+
 # 参考資料
 - 江添さんの解説
 	- 2010-09-20 [コンセプトの経緯](https://cpplover.blogspot.com/2010/09/blog-post_8970.html)
