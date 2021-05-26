@@ -304,6 +304,9 @@ customization point をユーザ定義にカスタマイズすることができ
 そしてそのとき、Concept が要求する型制約を強制することができ、また、  
 適合しない場合は容易に ( 超わかりやすい ※ ) エラーにすることができる。
 
+- おまけ: Concept Map が生まれた経緯
+	- [What were C++0x concept maps?](https://isocpp.org/wiki/faq/cpp0x-concepts-history#cpp0x-concept-maps) (isocpp.org : C++0x Concepts — Historical FAQs)
+
 # 参考資料
 - 江添さんの解説
 	- 2010-09-20 [コンセプトの経緯](https://cpplover.blogspot.com/2010/09/blog-post_8970.html)
