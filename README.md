@@ -142,6 +142,7 @@ C++20 では、C++標準ライブラリ への CPO 導入によって、既存�
 ```cpp
 namespace std {
   namespace __detail {
+  
     // define begin for arrays
     template <class T, size_t N>
     constexpr T* begin(T (&a)[N]) noexcept {
@@ -164,7 +165,8 @@ namespace std {
         return begin(forward<R>(rng));  // ★2: constrained ADL dispatch
       }
     };
-  }
+    
+  } // namespace __detail
 
   // To avoid ODR violations:
   template <class T>
@@ -286,8 +288,8 @@ void func( T& t, T::value_type x )         // 要件となっている型 value_
 // 関数テンプレート f() の第1引数として渡すことができるようになる.
 int main()
 {
-    std::vector< int > v;
-    func( v, 2011 );
+  std::vector< int > v;
+  func( v, 2011 );
 }
 ``` 
 
