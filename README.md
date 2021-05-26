@@ -185,8 +185,8 @@ namespace std {
 
 #### 関数オブジェクトと ADL について
 - [\[basic.lookup.argdep\] 3](https://timsong-cpp.github.io/cppwp/n4861/basic.lookup.argdep#3)  
-	- unqualified lookup の結果として得られた集合に「関数オブジェクト」のような  
-	  「 (本物の) 関数 や 関数テンプレート でないもの」が含まれていると ADL は一切適用されない.
+	- unqualified lookup の結果として得られた集合 (lookup set X) に「関数オブジェクト」のような  
+	  「 (本物の) 関数 や 関数テンプレート でないもの」が含まれていると ADL (lookup set Y) は一切適用されない.
 		- → __関数オブジェクト に対して ADL は発動しない。__
 		- → 必ず意図したものが呼ばれるようにコンパイルされるので、そこに何かのチェックを咬ませることが簡単にできる。
 			- [What is a niebloid?](https://stackoverflow.com/questions/62928396/what-is-a-niebloid) (stackoverflow)
