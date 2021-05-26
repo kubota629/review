@@ -267,7 +267,7 @@ concept_map Stack< std::vector< T > >
 //      - template< Stack T > と書いても OK. 
 //  - 仮引数 T に対する実引数は、コンセプト "Stack" に適合する型だけに強制できる.
 template< typename T > requires Stack< T >
-void func( T& t, T::value_type x )
+void func( T& t, T::value_type x )         // 要件となっている型 value_type が登場してます.
 {
   push( t, x );
   push( t, x );
@@ -287,21 +287,19 @@ int main()
 {
     std::vector< int > v;
     func( v, 2011 );
-
-    return 0;
 }
 ``` 
 
 ここでもし仮に、`concept Stack` に適合するデフォルトの constrained template の型定義や `func` が  
 C++標準ライブラリにおいて定義・提供されている、として、  
 さらに `std::vector<T>` は、仮に独自のユーザ定義型である、と置き換えて考えた場合、  
-`push`, `pop`, `top`, `empty` は customization point になる。
+`push()`, `pop()`, `top()`, `empty()` は customization point になる。
 
 C++0x concept_map によって、既に存在するオブジェクトの定義を変えることなく、  
-customization point をユーザ定義にカスタマイズすることができる。 - わかりやすい※
+customization point をユーザ定義にカスタマイズすることができる。 - わかりやすい ※
 
 そしてそのとき、Concept が要求する型制約を強制することができ、また、  
-適合しない場合は容易に ( 超わかりやすい※ ) エラーにすることができる。
+適合しない場合は容易に ( 超わかりやすい ※ ) エラーにすることができる。
 
 # 参考資料
 - 江添さんの解説
