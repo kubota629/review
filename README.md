@@ -177,7 +177,7 @@ namespace std {
     constexpr auto const & begin =
         __static_const<__detail::__begin_fn>;  // ★1: 関数オブジェクト (inhibit ADL)
   }
-}i
+}
 ```
 #### std::ranges::begin が定義していること
 
