@@ -217,7 +217,91 @@ void func(Container&& c) {
 
 # C++0x Concept Maps (concept_map)
 
-　( まだ. )
+- __コンセプト__
+	- テンプレート引数に対する要件 (使用できる関数、ネストした型など) を記述したもの。
+		- 型を記述するメタな型。ジェネリック・プログラミングに (メタな) 型安全の概念が導入される。
+- __コンセプトマップ__
+	- 「コンセプト」と「実在する型」を関連づけるもの。
+	- C++0x draft にのみ存在した。 ( 正式版 C++11/14/17/20 には存在しない. 削除された. )
+- __constrained template__
+	- テンプレート仮引数に対するコンセプト要件を明示的に指定したテンプレート。
+		- テンプレート実引数をコンセプトに適合するものだけに制限する。
+			- 適合しなければ、いち早くエラーにできる。( lookupで探し続けたり列挙したりしない )
+	- Concept は template argument を制御するもの。
+
+下記は C++0x concept map template の一例となる "ひとつづき" のソースコード。 
+```cpp
+// C++0x Concet
+//  - コンセプト "Stack" を定義する.
+concept Stack< typename T >
+{
+  // ネストした型 value_type を備える.
+  typename value_type; // 型名 value_type が使用可能であることを要件として表現.
+
+  // 大域関数 push(), pop(), top(), empty() を備える.
+  void       push ( T&, const value_type& );
+  void       pop  ( T& );
+  value_type top  ( const T& );
+  bool       empty( const T& );
+};
+```
+```cpp
+// C++0x concept_map (concept map template)
+//  - コンセプトマップはテンプレートにできる.
+//  - コンセプト"Stack" を std::vecor<T> に適合させる.
+template< typename T >
+concept_map Stack< std::vector< T > >
+{
+  typedef T value_type; // 要件になっている型を定義.
+
+  void push ( std::vector< T >& v, const T& x ) { v.push_back( x ); }
+  void pop  ( std::vector< T >& v )             { v.pop_back(); }
+  T    top  ( const std::vector< T >& v )       { return v.back(); }
+  bool empty( const std::vector< T >& v )       { return v.empty(); }
+};
+```
+```cpp
+// C++0x constrained template
+//  - 仮引数 T がコンセプト "Stack" に適合することを指定.
+//      - requires Stack< T >
+//      - template< Stack T > と書いても OK. 
+//  - 仮引数 T に対する実引数は、コンセプト "Stack" に適合する型だけに強制できる.
+template< typename T > requires Stack< T >
+void func( T& t, T::value_type x )
+{
+  push( t, x );
+  push( t, x );
+  push( t, x );
+  std::cout << std::boolalpha << empty( t ) << std::endl;
+
+  pop( t );
+  pop( t );
+  pop( t );
+  std::cout << std::boolalpha << empty( t ) << std::endl;
+};
+```
+```cpp
+// concept_map によって std::vector<T> はコンセプト "Stack" を満足し、
+// 関数テンプレート f() の第1引数として渡すことができるようになる.
+int main()
+{
+    std::vector< int > v;
+    func( v, 2011 );
+
+    return 0;
+}
+``` 
+
+ここでもし仮に、`concept Stack` に適合するデフォルトの constrained template の型定義や `func` が  
+C++標準ライブラリにおいて定義・提供されている、として、  
+さらに `std::vector<T>` は、仮に独自のユーザ定義型である、と置き換えて考えた場合、  
+`push`, `pop`, `top`, `empty` は customization point になる。
+
+C++0x concept_map によって、既に存在するオブジェクトの定義を変えることなく、  
+customization point をユーザ定義にカスタマイズすることができる。 - わかりやすい※
+
+そしてそのとき、Concept が要求する型制約を強制することができ、また、  
+適合しない場合は容易に ( 超わかりやすい※ ) エラーにすることができる。
 
 # 参考資料
 - 江添さんの解説
