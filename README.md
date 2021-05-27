@@ -7,7 +7,7 @@ C++のインターフェイスを「適切にカスタマイズする」ため�
 
 - virtual member functions
 - Existing Static Polymorphism Strategies
-	- Class Template Specification
+	- Class Template Specialization
 	- ADL
 		- "pure" ADL
 		- Customization Point Objects (aka CPOs)  
@@ -195,6 +195,8 @@ namespace std {
 #### std::ranges::begin が定義していること
 
 　( まだ. )
+ 
+ 文末の「実装の研究」にリンクがある、実際の実装も参照ください。
 
 #### 関数オブジェクトと ADL について
 - [\[basic.lookup.argdep\] 3](https://timsong-cpp.github.io/cppwp/n4861/basic.lookup.argdep#3)  
@@ -247,7 +249,7 @@ void func(Container&& c) {
 
 下記は C++0x concept map template の一例となる "ひとつづき" のソースコード。 
 ```cpp
-// C++0x Concet
+// C++0x Concept
 //  - コンセプト "Stack" を定義する.
 concept Stack< typename T >
 {
